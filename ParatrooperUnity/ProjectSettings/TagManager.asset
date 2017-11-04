@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 2609707683
+    locked: 0
   - name: Gun
     uniqueID: 616168825
     locked: 0
