@@ -13,6 +13,17 @@ public class GravityIsABitch : MonoBehaviour
 	{
 		var collidee = other.gameObject;
 		var collisionV = other.relativeVelocity.magnitude;
+
+		if (collisionV < 3.0)
+		{
+			if (DebuggingOn)
+			{
+				Debug.Log("SAFE LANDING " + collidee.name);
+			}
+			
+			return;
+		}
+		
 		var health = collidee.GetComponent<Health>();
 
 		if (health != null)

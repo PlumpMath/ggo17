@@ -10,6 +10,7 @@ TextureImporter:
     21300006: Trooper
     21300008: Turret
     21300010: Ground
+    21300012: Parachute
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -148,6 +149,20 @@ TextureImporter:
         height: 85
       alignment: 9
       pivot: {x: 0.46666667, y: 0.24705882}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Parachute
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 6
+        width: 45
+        height: 36
+      alignment: 9
+      pivot: {x: 0.51111114, y: -0.5555556}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
