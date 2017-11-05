@@ -9,11 +9,17 @@ public class Shoot : MonoBehaviour
 	public float ShotVelocity = 1000.0f;
 	public float RechargeSeconds = 0.5f;
 
+	[SerializeField]
+	private AudioClip pew;
+
 	private float _coolDown = 0.0f;
+
+	private AudioSource bulletSpawnAudioSource;
 	
 	
 	void Start ()
 	{
+		bulletSpawnAudioSource = BulletSpawn.GetComponent<AudioSource>();
 	}
 	
 	void Update ()
@@ -36,5 +42,7 @@ public class Shoot : MonoBehaviour
 		var spawnPos = BulletSpawn.position;
 		var bullet = Instantiate(BulletPrefab, spawnPos, Quaternion.identity);
 		bullet.GetComponent<Rigidbody2D>().AddForce(direction * ShotVelocity);
+
+		bulletSpawnAudioSource.PlayOneShot(this.pew);
 	}
 }
