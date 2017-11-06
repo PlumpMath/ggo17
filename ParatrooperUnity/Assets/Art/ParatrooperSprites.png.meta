@@ -11,6 +11,7 @@ TextureImporter:
     21300008: Turret
     21300010: Ground
     21300012: Parachute
+    21300014: Transport
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -115,8 +116,8 @@ TextureImporter:
       name: Bunker
       rect:
         serializedVersion: 2
-        x: 4
-        y: 124
+        x: 2
+        y: 126
         width: 128
         height: 128
       alignment: 0
@@ -129,8 +130,8 @@ TextureImporter:
       name: Ground
       rect:
         serializedVersion: 2
-        x: 4
-        y: 5
+        x: 2
+        y: 19
         width: 2
         height: 2
       alignment: 0
@@ -143,8 +144,8 @@ TextureImporter:
       name: Gun
       rect:
         serializedVersion: 2
-        x: 4
-        y: 33
+        x: 2
+        y: 39
         width: 15
         height: 85
       alignment: 9
@@ -157,8 +158,8 @@ TextureImporter:
       name: Parachute
       rect:
         serializedVersion: 2
-        x: 25
-        y: 6
+        x: 49
+        y: 16
         width: 45
         height: 36
       alignment: 9
@@ -171,8 +172,8 @@ TextureImporter:
       name: Shell
       rect:
         serializedVersion: 2
-        x: 4
-        y: 13
+        x: 2
+        y: 23
         width: 13
         height: 14
       alignment: 9
@@ -182,11 +183,25 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
+      name: Transport
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 214
+        width: 122
+        height: 40
+      alignment: 9
+      pivot: {x: 0.47540984, y: 1.325}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: Trooper
       rect:
         serializedVersion: 2
-        x: 97
-        y: 72
+        x: 19
+        y: 6
         width: 28
         height: 46
       alignment: 0
@@ -199,8 +214,8 @@ TextureImporter:
       name: Turret
       rect:
         serializedVersion: 2
-        x: 25
-        y: 48
+        x: 19
+        y: 54
         width: 66
         height: 70
       alignment: 9
