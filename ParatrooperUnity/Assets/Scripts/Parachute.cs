@@ -41,6 +41,7 @@ public class Parachute : MonoBehaviour
 	{
 		_open = true;
 		this.audioSource.PlayOneShot(this.openSound, 0.8f);
+		this.audioSource.Play();
 	}
 
 	public void Stash()
