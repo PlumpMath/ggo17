@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 61363447372953910}
   - component: {fileID: 114614613542380700}
   - component: {fileID: 114045121774460730}
+  - component: {fileID: 114572243598788318}
   m_Layer: 0
   m_Name: Transport
   m_TagString: Untagged
@@ -134,6 +135,18 @@ MonoBehaviour:
   MinDropDelay: 2
   MaxDropDelay: 8
   MaxDrops: 2
+--- !u!114 &114572243598788318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1768089103890844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51127347e3e4a954292761d8135fabdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 50
 --- !u!114 &114614613542380700
 MonoBehaviour:
   m_ObjectHideFlags: 1

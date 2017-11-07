@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 61363622601081610}
   - component: {fileID: 255328120082573978}
   - component: {fileID: 114589983673980942}
+  - component: {fileID: 114446810474585712}
   m_Layer: 0
   m_Name: Parachute
   m_TagString: Untagged
@@ -180,6 +181,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9af3d23d1a4614ea73b2cb9110f030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114446810474585712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1114736193537990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51127347e3e4a954292761d8135fabdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 5
 --- !u!114 &114535240979819786
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -30,8 +30,6 @@ public class LaneManager : MonoBehaviour
 		
 		if (planes.Count == 0 && delay < 0)
 		{
-			var random = Random.value;
-			Debug.Log("RNG: " + random);
 			if (Random.value < 0.5f)
 			{
 				SpawnLeft();

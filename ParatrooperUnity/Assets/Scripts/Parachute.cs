@@ -38,7 +38,10 @@ public class Parachute : MonoBehaviour
 
 	private void ScaleParameters(float scale)
 	{
-		_body.drag = Drag * scale;
-		transform.localScale = new Vector3(scale, scale, scale);
+		if (_body != null)
+		{
+			_body.drag = Drag * scale;
+			transform.localScale = new Vector3(scale, scale, scale);
+		}
 	}
 }
