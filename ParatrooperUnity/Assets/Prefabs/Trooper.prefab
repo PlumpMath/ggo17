@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114420620247713264}
   - component: {fileID: 114612845412196618}
   - component: {fileID: 114535240979819786}
+  - component: {fileID: 114544813774640918}
   m_Layer: 0
   m_Name: Trooper
   m_TagString: Untagged
@@ -286,6 +287,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebuggingOn: 0
+--- !u!114 &114544813774640918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056028012967200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a0ea87b74558e47a543c643d32b0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Points: 10
 --- !u!114 &114589983673980942
 MonoBehaviour:
   m_ObjectHideFlags: 1

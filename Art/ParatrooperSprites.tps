@@ -201,7 +201,9 @@
         <map type="IndividualSpriteSettingsMap">
             <key type="filename">Bunker.png</key>
             <key type="filename">Gun.png</key>
+            <key type="filename">Parachute.png</key>
             <key type="filename">Shell.png</key>
+            <key type="filename">Transport.png</key>
             <key type="filename">Trooper.png</key>
             <key type="filename">Turret.png</key>
             <struct type="IndividualSpriteSettings">
