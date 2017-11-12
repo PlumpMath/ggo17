@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Paradrop : MonoBehaviour
+public class Paradrop : MonoBehaviour, IRecyclable
 {
 
 	[SerializeField]
@@ -16,16 +16,27 @@ public class Paradrop : MonoBehaviour
 	private int maxDrops = 2;
 	
 	private Transform spawn;
-	private int dropped = 0;
+	private int dropped;
 	private float timer;
 	
 	void Start ()
 	{
 		spawn = transform.Find("Spawn");
 
-		SetJumpTimer();
+		Recycle();
 	}
-
+	
+	public void Recycle()
+	{
+		SetJumpTimer();
+		dropped = 0;
+	}
+	
+	private void SetJumpTimer()
+	{
+		timer = minDropDelay + (maxDropDelay - minDropDelay) * Random.value;
+	}
+	
 	void Update ()
 	{
 		if (dropped == maxDrops) return;
@@ -45,10 +56,5 @@ public class Paradrop : MonoBehaviour
 		dropped++;
 		
 		SetJumpTimer();
-	}
-	
-	private void SetJumpTimer()
-	{
-		timer = minDropDelay + (maxDropDelay - minDropDelay) * Random.value;
 	}
 }

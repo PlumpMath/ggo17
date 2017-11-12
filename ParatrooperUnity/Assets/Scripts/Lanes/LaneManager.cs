@@ -4,9 +4,13 @@ using UnityEngine;
 public class LaneManager : MonoBehaviour
 {
 
-	public Transform TransportPlane;
-	public float SpawnDelay = 2.0f;
-	public bool AutoSpawn = true;
+	[SerializeField]
+	private Transform transportPlane;
+	[SerializeField]
+	private float spawnDelay = 2.0f;
+	[SerializeField]
+	private bool autoSpawn = true;
+	
 	public int PlaneCount => planes.Count;
 
 	private float delay;
@@ -16,7 +20,7 @@ public class LaneManager : MonoBehaviour
 
 	void Start ()
 	{
-		delay = SpawnDelay;
+		delay = spawnDelay;
 		spawnLeft = transform.Find("SpawnLeft");
 		spawnRight = transform.Find("SpawnRight");
 		planes = new List<Transform>(2);
@@ -24,7 +28,7 @@ public class LaneManager : MonoBehaviour
 	
 	void Update ()
 	{
-		if (!AutoSpawn) return;
+		if (!autoSpawn) return;
 		
 		delay -= Time.deltaTime;
 		
@@ -55,9 +59,9 @@ public class LaneManager : MonoBehaviour
 
 	private Transform Spawn(Transform spawn)
 	{
-		delay = SpawnDelay;
-		
-		return Instantiate(TransportPlane, spawn.position, Quaternion.identity);
+		delay = spawnDelay;
+
+		return PoolingFactory.SpawnOrRecycle(transportPlane, spawn.position);
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
@@ -75,6 +79,11 @@ public class LaneManager : MonoBehaviour
 		if (plane != null)
 		{
 			planes.Remove(other.transform);
+			var pooled = other.transform.GetComponent<Pooled>();
+			if (pooled != null)
+			{
+				pooled.DestroyPooled();
+			}
 		}
 	}
 }

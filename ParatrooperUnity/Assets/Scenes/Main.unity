@@ -425,6 +425,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: transportPlane
+      value: 
+      objectReference: {fileID: 4978859327640900, guid: 078e6d4fa4714524d9b5d40606ec3653,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: spawnDelay
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b32c155207ecf74429cef0ad2d45aa15, type: 2}
   m_IsPrefabParent: 0
@@ -545,6 +556,12 @@ Prefab:
       propertyPath: m_Name
       value: LaneTop
       objectReference: {fileID: 0}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: transportPlane
+      value: 
+      objectReference: {fileID: 4978859327640900, guid: 078e6d4fa4714524d9b5d40606ec3653,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b32c155207ecf74429cef0ad2d45aa15, type: 2}
   m_IsPrefabParent: 0
