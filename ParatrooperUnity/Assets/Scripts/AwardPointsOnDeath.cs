@@ -10,4 +10,9 @@ public class AwardPointsOnDeath : MonoBehaviour
 	{
 		PointsManager.AddPoints(Points);
 	}
+
+	public void OnDestroyPooled()
+	{
+		PointsManager.AddPoints(Points);
+	}
 }
