@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114572243598788318}
   - component: {fileID: 114148102667803514}
   - component: {fileID: 82363115220833294}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Transport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4525200862855862}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

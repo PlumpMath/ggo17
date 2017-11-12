@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212910761865331010}
   - component: {fileID: 50222723731222134}
   - component: {fileID: 61142308385405042}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 50045873458882826}
   - component: {fileID: 82085279842660804}
   - component: {fileID: 114397398312884584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4734536895418502}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4300299260726164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GunJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 61483631554618702}
   - component: {fileID: 114290760523579588}
   - component: {fileID: 114369159206511572}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bunker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunJoint: {fileID: 4300299260726164}
-  pew: {fileID: 8300000, guid: cb9d5624dec4c4848a77dd11df02f831, type: 3}
   gun: {fileID: 114397398312884584}
 --- !u!114 &114369159206511572
 MonoBehaviour:
