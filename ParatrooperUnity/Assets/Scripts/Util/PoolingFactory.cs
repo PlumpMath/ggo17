@@ -1,19 +1,19 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 
 public class PoolingFactory : MonoBehaviour
 {
 
+	[SerializeField]
+	private Transform poolPrefab;
+	
+	private static Transform factory;
+	private static Transform poolPrefabStatic;
 	private static Dictionary<Transform, List<Transform>> objectsByPrefab = new Dictionary<Transform, List<Transform>>();
+	private static Dictionary<Transform, Transform> pools = new Dictionary<Transform, Transform>();
 	private static Dictionary<Transform, int> lastObjectReused = new Dictionary<Transform, int>();
 
 	public static Transform SpawnOrRecycle(Transform prefab, Vector3 position)
-	{
-		return SpawnOrRecycle(prefab, position, null);
-	}
-
-	public static Transform SpawnOrRecycle(Transform prefab, Vector3 position, Transform parent)
 	{
 		if (!objectsByPrefab.ContainsKey(prefab))
 		{
@@ -23,20 +23,37 @@ public class PoolingFactory : MonoBehaviour
 		var recyclee = GetUnusedObject(prefab);
 		if (recyclee == null)
 		{
-			DoubleObjects(prefab, parent);
+			DoubleObjects(prefab);
 			recyclee = GetUnusedObject(prefab);
 		}
 
+		ActivateObjectAndChildren(recyclee); // Activate first, then recycle, else you don't find child IRecyclables
 		RecycleObject(recyclee);
 		recyclee.position = position;
-		recyclee.gameObject.SetActive(true);
 		return recyclee;
+	}
+
+	private static void ActivateObjectAndChildren(Transform recyclee)
+	{
+		recyclee.gameObject.SetActive(true);
+
+		for (var i = 0; i < recyclee.gameObject.transform.childCount; i++)
+		{
+			recyclee.gameObject.transform.GetChild(i).gameObject.SetActive(true);
+		}
 	}
 
 	private static void AddNewPrefab(Transform prefab)
 	{
 		objectsByPrefab.Add(prefab, new List<Transform>());
 		lastObjectReused.Add(prefab, -1);
+
+		if (factory != null && poolPrefabStatic != null)
+		{
+			var pool = Instantiate(poolPrefabStatic, Vector3.zero, Quaternion.identity, factory);
+			pool.name = prefab.name + "s (0)";
+			pools.Add(prefab, pool);
+		}
 	}
 	
 	private static Transform GetUnusedObject(Transform prefab)
@@ -63,15 +80,17 @@ public class PoolingFactory : MonoBehaviour
 		return recyclee;
 	}
 	
-	private static void DoubleObjects(Transform prefab, Transform parent)
+	private static void DoubleObjects(Transform prefab)
 	{
 		var objects = objectsByPrefab[prefab];
 		var initialCount = objects.Count;
 		var targetCount = initialCount * 2 + 1;
+		var parent = pools[prefab];
 		
 		for (var i = initialCount; i < targetCount; i++)
 		{
 			Transform newRecyclee;
+			
 			if (parent != null)
 			{
 				newRecyclee = Instantiate(prefab, new Vector3(100, 100, 0), Quaternion.identity, parent);
@@ -99,9 +118,17 @@ public class PoolingFactory : MonoBehaviour
 		{
 			recyclable.Recycle();
 		}
+
+		foreach (var recyclable in recyclee.GetComponentsInChildren<IRecyclable>())
+		{
+			recyclable.Recycle();
+		}
 	}
 
-	void Start () {
+	void Start ()
+	{
+		factory = transform;
+		poolPrefabStatic = poolPrefab;
 	}
 	
 	void Update () {

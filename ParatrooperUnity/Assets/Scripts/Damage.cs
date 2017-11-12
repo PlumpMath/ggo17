@@ -25,7 +25,7 @@ public class Damage : MonoBehaviour
 		}
 		else
 		{
-			Destroy(gameObject.transform);
+			Destroy(transform.gameObject);
 		}
 	}
 }

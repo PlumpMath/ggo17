@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class Parachute : MonoBehaviour
+public class Parachute : MonoBehaviour, IRecyclable
 {
 
 	public float Drag = 120.0f;
@@ -56,5 +56,12 @@ public class Parachute : MonoBehaviour
 			_body.drag = Drag * scale;
 			transform.localScale = new Vector3(scale, scale, scale);
 		}
+	}
+
+	public void Recycle()
+	{
+		_open = false;
+		_deploy = 0.0f;
+		ScaleParameters(0);
 	}
 }

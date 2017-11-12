@@ -8,8 +8,6 @@ public class Gun : MonoBehaviour
 	[SerializeField]
 	private Transform bulletSpawn;
 	[SerializeField]
-	private Transform bulletPool;
-	[SerializeField]
 	private float shotVelocity = 1000.0f;
 	[SerializeField]
 	private float rechargeSeconds = 0.5f;
@@ -40,8 +38,7 @@ public class Gun : MonoBehaviour
 
 		var direction = (Vector2)(bulletSpawn.position - gunJoint.position).normalized;
 		var spawnPos = bulletSpawn.position;
-		//var bullet = Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
-		var bullet = PoolingFactory.SpawnOrRecycle(bulletPrefab.transform, spawnPos, bulletPool);
+		var bullet = PoolingFactory.SpawnOrRecycle(bulletPrefab.transform, spawnPos);
 		bullet.GetComponent<Bullet>().AddForce(direction * shotVelocity);
 
 		gunAudioSource.PlayOneShot(this.pew);
