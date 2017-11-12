@@ -344,7 +344,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -397,6 +397,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114128118628438098, guid: 235ec6d072c31f64d8edf79e2197b742,
     type: 2}
   bulletSpawn: {fileID: 4734536895418502}
+  bulletPool: {fileID: 0}
   shotVelocity: 1000
   rechargeSeconds: 0.5
   pew: {fileID: 8300000, guid: cb9d5624dec4c4848a77dd11df02f831, type: 3}

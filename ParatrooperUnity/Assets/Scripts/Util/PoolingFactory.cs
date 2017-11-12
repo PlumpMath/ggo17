@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 
 public class PoolingFactory : MonoBehaviour
@@ -9,16 +10,20 @@ public class PoolingFactory : MonoBehaviour
 
 	public static Transform SpawnOrRecycle(Transform prefab, Vector3 position)
 	{
+		return SpawnOrRecycle(prefab, position, null);
+	}
+
+	public static Transform SpawnOrRecycle(Transform prefab, Vector3 position, Transform parent)
+	{
 		if (!objectsByPrefab.ContainsKey(prefab))
 		{
-			objectsByPrefab.Add(prefab, new List<Transform>());
-			lastObjectReused.Add(prefab, -1);
+			AddNewPrefab(prefab);
 		}
 
 		var recyclee = GetUnusedObject(prefab);
 		if (recyclee == null)
 		{
-			DoubleObjects(prefab);
+			DoubleObjects(prefab, parent);
 			recyclee = GetUnusedObject(prefab);
 		}
 
@@ -28,34 +33,63 @@ public class PoolingFactory : MonoBehaviour
 		return recyclee;
 	}
 
+	private static void AddNewPrefab(Transform prefab)
+	{
+		objectsByPrefab.Add(prefab, new List<Transform>());
+		lastObjectReused.Add(prefab, -1);
+	}
+	
 	private static Transform GetUnusedObject(Transform prefab)
 	{
 		var objects = objectsByPrefab[prefab];
-		var lastIndex = lastObjectReused[prefab];
+		
+		if (objects.Count == 0) return null;
+		
+		var startIndex = (lastObjectReused[prefab] + 1) % objects.Count;
+		var index = startIndex;
+		Transform recyclee = null;
 
-		lastIndex = objects.Count == 0 ? 0 : (lastIndex + 1) % objects.Count;
-
-		if (lastIndex >= objects.Count)
+		do
 		{
-			return null;
-		}
+			if (!objects[index].gameObject.activeSelf && index < objects.Count)
+			{
+				recyclee = objects[index];
+				lastObjectReused[prefab] = index;
+			}
+			
+			index = (index + 1) % objects.Count;
+		} while (recyclee == null && index != startIndex);
 
-		lastObjectReused[prefab] = lastIndex;
-		var recyclee = objects[lastIndex];
-		return recyclee.gameObject.activeSelf ? null : recyclee;
+		return recyclee;
 	}
 	
-	private static void DoubleObjects(Transform prefab)
+	private static void DoubleObjects(Transform prefab, Transform parent)
 	{
 		var objects = objectsByPrefab[prefab];
 		var initialCount = objects.Count;
 		var targetCount = initialCount * 2 + 1;
 		
-		for (var i = initialCount; i <= targetCount; i++)
+		for (var i = initialCount; i < targetCount; i++)
 		{
-			var newRecyclee = Instantiate(prefab, new Vector3(100, 100, 0), Quaternion.identity);
+			Transform newRecyclee;
+			if (parent != null)
+			{
+				newRecyclee = Instantiate(prefab, new Vector3(100, 100, 0), Quaternion.identity, parent);
+			}
+			else
+			{
+				newRecyclee = Instantiate(prefab, new Vector3(100, 100, 0), Quaternion.identity);
+			}
+			
 			newRecyclee.gameObject.SetActive(false);
 			objects.Add(newRecyclee);
+		}
+
+		if (parent != null)
+		{
+			var baseName = parent.gameObject.name.Split(' ')[0];
+			var newName = baseName + " (" + objects.Count + ")";
+			parent.gameObject.name = newName;
 		}
 	}
 	

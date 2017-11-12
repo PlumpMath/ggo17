@@ -11,7 +11,21 @@ public class Damage : MonoBehaviour
 		if (health != null)
 		{
 			health.Damage(HP);
-			Destroy(gameObject);
+
+			DestroySelf();
+		}
+	}
+
+	private void DestroySelf()
+	{
+		var pooled = gameObject.GetComponent<Pooled>();
+		if (pooled != null)
+		{
+			pooled.DestroyPooled();
+		}
+		else
+		{
+			Destroy(gameObject.transform);
 		}
 	}
 }
