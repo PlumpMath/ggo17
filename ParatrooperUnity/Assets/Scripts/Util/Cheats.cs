@@ -25,7 +25,7 @@ public class Cheats : MonoBehaviour
 		}
 		else if (Input.GetKeyDown(KeyCode.Quote))
 		{
-(((())))			LaneMiddle.GetComponent<LaneManager>().SpawnRight();
+			LaneMiddle.GetComponent<LaneManager>().SpawnRight();
 		}
 	}
 }
