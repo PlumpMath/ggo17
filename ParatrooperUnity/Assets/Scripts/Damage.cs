@@ -1,9 +1,17 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Pooled))]
 public class Damage : MonoBehaviour
 {
 
 	public float HP = 50.0f;
+
+	private Pooled pooled;
+
+	private void Awake()
+	{
+		pooled = GetComponent<Pooled>();
+	}
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
@@ -12,20 +20,7 @@ public class Damage : MonoBehaviour
 		{
 			health.Damage(HP);
 
-			DestroySelf();
-		}
-	}
-
-	private void DestroySelf()
-	{
-		var pooled = gameObject.GetComponent<Pooled>();
-		if (pooled != null)
-		{
 			pooled.DestroyPooled();
-		}
-		else
-		{
-			Destroy(transform.gameObject);
 		}
 	}
 }

@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+
 public class LaneManager : MonoBehaviour
 {
 
 	[SerializeField]
-	private Transform transportPlane;
+	private FlyHorizontal planePrefab;
 	[SerializeField]
 	private float spawnDelay = 2.0f;
 	[SerializeField]
@@ -18,7 +19,7 @@ public class LaneManager : MonoBehaviour
 	private Transform spawnRight;
 	private List<Transform> planes;
 
-	void Start ()
+	void Awake()
 	{
 		delay = spawnDelay;
 		spawnLeft = transform.Find("SpawnLeft");
@@ -26,7 +27,7 @@ public class LaneManager : MonoBehaviour
 		planes = new List<Transform>(2);
 	}
 	
-	void Update ()
+	void Update()
 	{
 		if (!autoSpawn) return;
 		
@@ -48,20 +49,20 @@ public class LaneManager : MonoBehaviour
 	public void SpawnLeft()
 	{
 		var plane = Spawn(spawnLeft);
-		plane.GetComponent<FlyHorizontal>().FlyRight();
+		plane.FlyRight();
 	}
 
 	public void SpawnRight()
 	{
 		var plane = Spawn(spawnRight);
-		plane.GetComponent<FlyHorizontal>().FlyLeft();
+		plane.FlyLeft();
 	}
 
-	private Transform Spawn(Transform spawn)
+	private FlyHorizontal Spawn(Transform spawn)
 	{
 		delay = spawnDelay;
 
-		return PoolingFactory.SpawnOrRecycle(transportPlane, spawn.position);
+		return PoolingFactory.SpawnOrRecycle<FlyHorizontal>(planePrefab.transform, spawn.position);
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)

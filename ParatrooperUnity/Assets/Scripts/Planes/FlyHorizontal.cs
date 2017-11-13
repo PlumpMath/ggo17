@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class FlyHorizontal : MonoBehaviour
 {
 
@@ -9,7 +10,7 @@ public class FlyHorizontal : MonoBehaviour
 	private Rigidbody2D body;
 	private Vector2 direction = Vector2.left;
 	
-	void Start () {
+	void Awake() {
 		body =  GetComponent<Rigidbody2D>();
 	}
 

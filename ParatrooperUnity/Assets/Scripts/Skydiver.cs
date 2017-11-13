@@ -1,35 +1,36 @@
 ﻿using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Skydiver : MonoBehaviour {
 
 	public bool DebuggingOn = false;
 
-	private Rigidbody2D _body;
-	private Parachute _chute;
+	private Rigidbody2D body;
+	private Parachute chute;
 	
-	void Start ()
+	void Awake()
 	{
-		_body = GetComponent<Rigidbody2D>();
-		_chute = GetComponentInChildren<Parachute>();
+		body = GetComponent<Rigidbody2D>();
+		chute = GetComponentInChildren<Parachute>();
 
-		if (DebuggingOn && _chute == null)
+		if (DebuggingOn && chute == null)
 		{
 			Debug.Log("OH SHIT - NO CHUTE: " + gameObject.name);
 		}
 	}
 	
-	void Update () {
+	void Update() {
 		if (gameObject.transform.position.y < 0.0f)
 		{
-			if (!_chute.IsOpen)
+			if (!chute.IsOpen)
 			{
-				_chute.Open();				
+				chute.Open();				
 			}
 
-			if (_chute.IsOpen && Math.Abs(_body.velocity.y) < 0.01f)
+			if (chute.IsOpen && Math.Abs(body.velocity.y) < 0.01f)
 			{
-				_chute.Stash();
+				chute.Stash();
 			}
 		}	
 	}

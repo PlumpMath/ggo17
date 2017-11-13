@@ -112,6 +112,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &105262260 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4279562384898574, guid: b32c155207ecf74429cef0ad2d45aa15,
+    type: 2}
+  m_PrefabInternal: {fileID: 1333558749}
 --- !u!1 &150791235
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +441,16 @@ Prefab:
       propertyPath: spawnDelay
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefab
+      value: 
+      objectReference: {fileID: 114614613542380700, guid: 078e6d4fa4714524d9b5d40606ec3653,
+        type: 2}
+    - target: {fileID: 1452186743422272, guid: b32c155207ecf74429cef0ad2d45aa15, type: 2}
+      propertyPath: m_Name
+      value: LaneMiddle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b32c155207ecf74429cef0ad2d45aa15, type: 2}
   m_IsPrefabParent: 0
@@ -561,6 +576,12 @@ Prefab:
       propertyPath: transportPlane
       value: 
       objectReference: {fileID: 4978859327640900, guid: 078e6d4fa4714524d9b5d40606ec3653,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefab
+      value: 
+      objectReference: {fileID: 114614613542380700, guid: 078e6d4fa4714524d9b5d40606ec3653,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b32c155207ecf74429cef0ad2d45aa15, type: 2}
@@ -807,3 +828,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CheatsEnabled: 1
   LaneTop: {fileID: 229698286}
+  LaneMiddle: {fileID: 105262260}

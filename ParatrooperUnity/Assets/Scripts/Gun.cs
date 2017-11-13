@@ -38,8 +38,8 @@ public class Gun : MonoBehaviour
 
 		var direction = (Vector2)(bulletSpawn.position - gunJoint.position).normalized;
 		var spawnPos = bulletSpawn.position;
-		var bullet = PoolingFactory.SpawnOrRecycle(bulletPrefab.transform, spawnPos);
-		bullet.GetComponent<Bullet>().AddForce(direction * shotVelocity);
+		var bullet = PoolingFactory.SpawnOrRecycle<Bullet>(bulletPrefab.transform, spawnPos);
+		bullet.AddForce(direction * shotVelocity);
 
 		gunAudioSource.PlayOneShot(this.pew);
 	}

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(AudioSource), typeof(Rigidbody2D))]
 public class Parachute : MonoBehaviour, IRecyclable
 {
 
@@ -10,38 +10,38 @@ public class Parachute : MonoBehaviour, IRecyclable
 	[SerializeField]
 	private AudioClip openSound;
 	
-	public bool IsOpen => _open;
+	public bool IsOpen => open;
 
-	private Rigidbody2D _body;
+	private Rigidbody2D body;
 	private AudioSource audioSource;
-	private bool _open = false;
-	private float _deploy = 0.0f;
+	private bool open = false;
+	private float deploy = 0.0f;
 
 	private void Awake()
 	{	
-		_body = GetComponent<Rigidbody2D>();
-		this.audioSource = this.GetComponent<AudioSource>();
+		body = GetComponent<Rigidbody2D>();
+		audioSource = GetComponent<AudioSource>();
 	}
 
-	void Start ()
+	void Start()
 	{
 		ScaleParameters(0.0f);
 	}
 	
-	void Update () {
-		if (_open && _deploy < DeployTime)
+	void Update() {
+		if (open && deploy < DeployTime)
 		{
-			_deploy += Time.deltaTime;
+			deploy += Time.deltaTime;
 			
-			ScaleParameters(_deploy / DeployTime);
+			ScaleParameters(deploy / DeployTime);
 		}
 	}
 
 	public void Open()
 	{
-		_open = true;
-		this.audioSource.PlayOneShot(this.openSound, 0.8f);
-		this.audioSource.Play();
+		open = true;
+		audioSource.PlayOneShot(openSound, 0.8f);
+		audioSource.Play();
 	}
 
 	public void Stash()
@@ -51,17 +51,14 @@ public class Parachute : MonoBehaviour, IRecyclable
 
 	private void ScaleParameters(float scale)
 	{
-		if (_body != null)
-		{
-			_body.drag = Drag * scale;
-			transform.localScale = new Vector3(scale, scale, scale);
-		}
+		body.drag = Drag * scale;
+		transform.localScale = new Vector3(scale, scale, scale);
 	}
 
 	public void Recycle()
 	{
-		_open = false;
-		_deploy = 0.0f;
+		open = false;
+		deploy = 0.0f;
 		ScaleParameters(0);
 	}
 }

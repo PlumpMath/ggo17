@@ -19,7 +19,7 @@ public class Paradrop : MonoBehaviour, IRecyclable
 	private int dropped;
 	private float timer;
 	
-	void Start ()
+	void Awake()
 	{
 		spawn = transform.Find("Spawn");
 

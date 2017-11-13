@@ -12,7 +12,13 @@ public class PoolingFactory : MonoBehaviour
 	private static Dictionary<Transform, List<Transform>> objectsByPrefab = new Dictionary<Transform, List<Transform>>();
 	private static Dictionary<Transform, Transform> pools = new Dictionary<Transform, Transform>();
 	private static Dictionary<Transform, int> lastObjectReused = new Dictionary<Transform, int>();
-
+	
+	public static TComponentType SpawnOrRecycle<TComponentType>(Transform prefab, Vector3 position)
+	{
+		var result = SpawnOrRecycle(prefab, position);
+		return result.GetComponent<TComponentType>();
+	}
+	
 	public static Transform SpawnOrRecycle(Transform prefab, Vector3 position)
 	{
 		if (!objectsByPrefab.ContainsKey(prefab))
@@ -125,12 +131,9 @@ public class PoolingFactory : MonoBehaviour
 		}
 	}
 
-	void Start ()
+	private void Awake()
 	{
 		factory = transform;
 		poolPrefabStatic = poolPrefab;
-	}
-	
-	void Update () {
 	}
 }

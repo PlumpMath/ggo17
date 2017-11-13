@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Pooled))]
 public class Health : MonoBehaviour, IRecyclable
 {
 
@@ -12,14 +13,14 @@ public class Health : MonoBehaviour, IRecyclable
 	private float hitPoints;
 	private Pooled pooled;
 
-	void Start()
+	private void Awake()
 	{
-		Recycle();
-
 		pooled = GetComponent<Pooled>();
+		
+		Recycle();
 	}
-	
-	void Update () {
+
+	void Update() {
 		if (hitPoints < 0)
 		{
 			DestroySelf();

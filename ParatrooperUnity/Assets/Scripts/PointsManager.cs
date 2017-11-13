@@ -22,8 +22,8 @@ public class PointsManager : MonoBehaviour {
 			Points = 0;
 		}
 	}
-	
-	void Start ()
+
+	private void Awake()
 	{
 		pointsText = GetComponent<Text>();
 	}
