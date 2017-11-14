@@ -1,21 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class DebugVelocityLogger : MonoBehaviour {
 	
-	private Rigidbody2D _body;
+	private Rigidbody2D body;
 
-	void Start ()
+	void Awake()
 	{
-		_body = GetComponent<Rigidbody2D>();
+		body = GetComponent<Rigidbody2D>();
 	}
 	
-	void Update () {
-		if (_body == null)
-		{
-			enabled = false;
-		}
-		
-		Debug.Log(gameObject.name + " V: " + Math.Round(_body.velocity.magnitude, 2));
+	void Update() {
+		Debug.Log(gameObject.name + " V: " + Math.Round(body.velocity.magnitude, 2));
 	}
 }

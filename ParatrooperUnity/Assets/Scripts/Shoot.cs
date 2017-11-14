@@ -7,11 +7,11 @@ public class Shoot : MonoBehaviour
 	[SerializeField]
 	private Gun gun;
 
-	void Update ()
+	void Update()
 	{
 		if (Input.GetKey(KeyCode.UpArrow))
 		{
-			this.gun.Fire(this.gunJoint);
+			gun.Fire(gunJoint);
 		}
 	}
 }

@@ -1,27 +1,45 @@
 ﻿using UnityEngine;
 
-public class Paradrop : MonoBehaviour
+public class Paradrop : MonoBehaviour, IRecyclable
 {
 
-	public Transform Paratrooper;
-	public float MinDropDelay = 1.0f;
-	public float MaxDropDelay = 2.0f;
-	public int MaxDrops = 2;
+	[SerializeField]
+	private Transform paratrooperPrefab;
+	
+	[SerializeField]
+	private float minDropDelay = 1.0f;
+	
+	[SerializeField]
+	private float maxDropDelay = 2.0f;
+	
+	[SerializeField]
+	private int maxDrops = 2;
 	
 	private Transform spawn;
-	private int dropped = 0;
+	private int dropped;
 	private float timer;
 	
-	void Start ()
+	void Awake()
 	{
 		spawn = transform.Find("Spawn");
 
-		SetJumpTimer();
+		Recycle();
 	}
-
+	
+	public void Recycle()
+	{
+		SetJumpTimer();
+		dropped = 0;
+	}
+	
+	private void SetJumpTimer()
+	{
+		timer = minDropDelay + (maxDropDelay - minDropDelay) * Random.value;
+	}
+	
 	void Update ()
 	{
-		if (dropped == MaxDrops) return;
+		if (dropped == maxDrops) return;
 		
 		timer -= Time.deltaTime;
 
@@ -33,15 +51,10 @@ public class Paradrop : MonoBehaviour
 	
 	private void Drop()
 	{
-		Instantiate(Paratrooper, spawn.position, Quaternion.identity);
+		PoolingFactory.SpawnOrRecycle(paratrooperPrefab, spawn.position);
 		
 		dropped++;
 		
 		SetJumpTimer();
-	}
-	
-	private void SetJumpTimer()
-	{
-		timer = MinDropDelay + (MaxDropDelay - MinDropDelay) * Random.value;
 	}
 }

@@ -7,11 +7,11 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
-        this.rigidbody2D = this.GetComponent<Rigidbody2D>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     public void AddForce(Vector2 force)
     {
-        this.rigidbody2D.AddForce(force);
+        rigidbody2D.AddForce(force);
     }
 }

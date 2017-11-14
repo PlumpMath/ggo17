@@ -5,6 +5,7 @@ public class Cheats : MonoBehaviour
 
 	public bool CheatsEnabled = true;
 	public Transform LaneTop;
+	public Transform LaneMiddle;
 	
 	void Update ()
 	{
@@ -17,6 +18,14 @@ public class Cheats : MonoBehaviour
 		else if (Input.GetKeyDown(KeyCode.RightBracket))
 		{
 			LaneTop.GetComponent<LaneManager>().SpawnRight();
+		}
+		else if (Input.GetKeyDown(KeyCode.Semicolon))
+		{
+			LaneMiddle.GetComponent<LaneManager>().SpawnLeft();
+		}
+		else if (Input.GetKeyDown(KeyCode.Quote))
+		{
+			LaneMiddle.GetComponent<LaneManager>().SpawnRight();
 		}
 	}
 }
