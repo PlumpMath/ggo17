@@ -4,28 +4,59 @@ public class Cheats : MonoBehaviour
 {
 
 	public bool CheatsEnabled = true;
-	public Transform LaneTop;
-	public Transform LaneMiddle;
+	public LaneManager LaneTop;
+	public LaneManager LaneMiddle;
+	public Guard GuardLeft;
+	public Guard GuardRight;
 	
 	void Update ()
 	{
 		if (!CheatsEnabled) return;
 		
+		LaneTopCheats();
+		LaneMiddleCheats();
+
+		GuardLeftCheats();
+		GuardRightCheats();
+	}
+
+	private void LaneTopCheats()
+	{
 		if (Input.GetKeyDown(KeyCode.LeftBracket))
 		{
-			LaneTop.GetComponent<LaneManager>().SpawnLeft();
+			LaneTop.SpawnLeft();
 		}
 		else if (Input.GetKeyDown(KeyCode.RightBracket))
 		{
-			LaneTop.GetComponent<LaneManager>().SpawnRight();
+			LaneTop.SpawnRight();
 		}
-		else if (Input.GetKeyDown(KeyCode.Semicolon))
+	}
+	
+	private void LaneMiddleCheats()
+	{
+		if (Input.GetKeyDown(KeyCode.Semicolon))
 		{
-			LaneMiddle.GetComponent<LaneManager>().SpawnLeft();
+			LaneMiddle.SpawnLeft();
 		}
 		else if (Input.GetKeyDown(KeyCode.Quote))
 		{
-			LaneMiddle.GetComponent<LaneManager>().SpawnRight();
+			LaneMiddle.SpawnRight();
+		}
+	}
+	
+	private void GuardLeftCheats()
+	{
+		if (Input.GetKeyDown(KeyCode.Delete))
+		{
+			GuardLeft.ToggleCover();
+		}
+	}
+	
+	private void GuardRightCheats()
+	{
+		if (Input.GetKeyDown(KeyCode.PageDown))
+		{
+			GuardRight.ToggleCover();
 		}
 	}
 }
