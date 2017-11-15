@@ -1,4 +1,6 @@
-﻿using UnityEditor.Experimental.AssetImporters;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Experimental.AssetImporters;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -27,38 +29,72 @@ public class Guard : MonoBehaviour
 		}
 	}
 
+	public void ToggleCover()
+	{
+		if (cover)
+		{
+			ReadyUp();
+		}
+		else
+		{
+			TakeCover();
+		}
+	}
+	
 	public void ReadyUp()
 	{
 		cover = false;
-		
 		animator.SetBool("Cover", cover);
 	}
 
 	public void TakeCover()
 	{
-		cover = true;
-		
-		animator.SetBool("Cover", cover);
-	}
-
-	public void ToggleCover()
-	{
-		cover = !cover;
-		
-		animator.SetBool("Cover", cover);
+		StartCoroutine(RotateArmToUnready());
 	}
 
 	public void ReadyArm()
 	{
-		armJoint.gameObject.SetActive(true);
-		armJoint.transform.Rotate(0, 0, 270);
-		aimed = true;
+		StartCoroutine(RotateArmToReady());
 	}
 
 	public void UnreadyArm()
 	{
 		armJoint.gameObject.SetActive(false);
-		armJoint.transform.Rotate(0, 0, 0);
+	}
+
+	IEnumerator RotateArmToReady()
+	{
+		armJoint.gameObject.SetActive(true);
+		var rotation = 0.0f;
+		var ratePerSecond = -90.0f;
+		while (rotation > -90.0f)
+		{
+			var amount = ratePerSecond * Time.deltaTime;
+			armJoint.transform.Rotate(0, 0, amount);
+			rotation += amount;
+			
+			yield return null;
+		}
+
+		aimed = true;
+	}
+	
+	IEnumerator RotateArmToUnready()
+	{
 		aimed = false;
+		
+		var rotation = -90.0f;
+		var ratePerSecond = 90.0f;
+		while (rotation < 0.0f)
+		{
+			var amount = ratePerSecond * Time.deltaTime;
+			armJoint.transform.Rotate(0, 0, amount);
+			rotation += amount;
+			
+			yield return null;
+		}
+
+		cover = true;
+		animator.SetBool("Cover", cover);
 	}
 }
