@@ -1,24 +1,30 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Experimental.AssetImporters;
+using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class Guard : MonoBehaviour
 {
 
 	private Animator animator;
-	private Transform arm;
+	private Transform armJoint;
+	private Gun gun;
 	
 	private bool cover = true;
-	
+	private bool aimed = false;
 	
 	void Awake()
 	{
 		animator = GetComponent<Animator>();
-		arm = transform.Find("Arm");
-		arm.gameObject.SetActive(false);
+		armJoint = transform.Find("ArmJoint");
+		armJoint.gameObject.SetActive(false);
+		gun = armJoint.GetComponentInChildren<Gun>();
 	}
 	
 	void Update() {
-		
+		if (!cover && aimed)
+		{
+			gun.Fire(armJoint);
+		}
 	}
 
 	public void ReadyUp()
@@ -44,11 +50,15 @@ public class Guard : MonoBehaviour
 
 	public void ReadyArm()
 	{
-		arm.gameObject.SetActive(true);
+		armJoint.gameObject.SetActive(true);
+		armJoint.transform.Rotate(0, 0, 270);
+		aimed = true;
 	}
 
 	public void UnreadyArm()
 	{
-		arm.gameObject.SetActive(false);
+		armJoint.gameObject.SetActive(false);
+		armJoint.transform.Rotate(0, 0, 0);
+		aimed = false;
 	}
 }
