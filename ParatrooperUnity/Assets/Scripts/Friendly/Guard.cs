@@ -5,25 +5,42 @@ using UnityEngine;
 public class Guard : MonoBehaviour
 {
 
+	private static Color TransparentBlack = new Color(0, 0, 0, 0);
+	
 	private Animator animator;
 	private Transform armJoint;
+	private SpriteRenderer armRenderer;
 	private Gun gun;
 	
 	private bool cover = true;
 	private bool aimed = false;
+	private bool targets = false;
 	
 	void Awake()
 	{
 		animator = GetComponent<Animator>();
 		armJoint = transform.Find("ArmJoint");
-		armJoint.gameObject.SetActive(false);
+		armRenderer = armJoint.GetComponentInChildren<SpriteRenderer>();
+		armRenderer.color = TransparentBlack;
 		gun = armJoint.GetComponentInChildren<Gun>();
+
+		gun.OnEmpty += TakeCover;
+		gun.OnReloaded += ReadyUp;
 	}
 	
 	void Update() {
-		if (!cover && aimed)
+		if (!cover && aimed && targets)
 		{
 			gun.Fire(armJoint);
+			targets = false;
+		}
+	}
+	
+	private void OnTriggerStay2D(Collider2D other)
+	{
+		if (other.GetComponent<Health>()) // Assume soldier
+		{
+			targets = true;
 		}
 	}
 
@@ -57,12 +74,12 @@ public class Guard : MonoBehaviour
 
 	public void UnreadyArm()
 	{
-		armJoint.gameObject.SetActive(false);
+		armRenderer.color = TransparentBlack;
 	}
 
 	IEnumerator RotateArmToReady()
 	{
-		armJoint.gameObject.SetActive(true);
+		armRenderer.color = Color.white;
 		var rotation = 0.0f;
 		var ratePerSecond = -90.0f;
 		while (rotation > -90.0f)
@@ -94,5 +111,6 @@ public class Guard : MonoBehaviour
 
 		cover = true;
 		animator.SetBool("Cover", cover);
+		gun.Reload();
 	}
 }

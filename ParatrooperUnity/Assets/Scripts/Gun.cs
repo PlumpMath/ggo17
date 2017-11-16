@@ -1,9 +1,17 @@
 ﻿using System.Collections;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 [RequireComponent(typeof(AudioSource))]
 public class Gun : MonoBehaviour
 {
+	public delegate void OnEmptyAction();
+	public delegate void OnReloadedAction();
+
+	public event OnEmptyAction OnEmpty;
+	public event OnReloadedAction OnReloaded;
+	
 	[SerializeField]
 	private Bullet bulletPrefab;
 	[SerializeField]
@@ -20,6 +28,8 @@ public class Gun : MonoBehaviour
 	private AudioClip pew;
 	[SerializeField]
 	private AudioClip click;
+	[SerializeField]
+	private bool DebugOn = false;
 
 	private int ammo = 0;
 	private bool reloading = false;
@@ -61,8 +71,13 @@ public class Gun : MonoBehaviour
 		if (maxAmmo > 0)
 		{
 			ammo--;
-		}
 
+			if (ammo == 0)
+			{
+				OnEmpty?.Invoke();
+			}
+		}
+		
 		gunAudioSource.PlayOneShot(pew);
 	}
 
@@ -71,6 +86,11 @@ public class Gun : MonoBehaviour
 		if (reloading)
 		{
 			return;
+		}
+		
+		if (DebugOn)
+		{
+			Debug.Log("Reloading...");
 		}
 		
 		reloading = true;
@@ -88,8 +108,15 @@ public class Gun : MonoBehaviour
 			yield return null;
 		}
 
+		if (DebugOn)
+		{
+			Debug.Log("Reloaded!");
+		}
+		
 		reloading = false;
 		ammo = maxAmmo;
 		coolDown = 0.0f;
+		
+		OnReloaded?.Invoke();
 	}
 }
