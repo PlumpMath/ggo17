@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 50650162522751072}
   - component: {fileID: 61363447372953910}
   - component: {fileID: 114614613542380700}
-  - component: {fileID: 114045121774460730}
   - component: {fileID: 114572243598788318}
   - component: {fileID: 114148102667803514}
   - component: {fileID: 82363115220833294}
@@ -43,8 +42,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4525200862855862}
+  - component: {fileID: 114612999920142754}
   m_Layer: 11
-  m_Name: Spawn
+  m_Name: BayDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1768089103890844}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -202,22 +202,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114045121774460730
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1768089103890844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d428e79cee04fa741b0735b1b26e1f27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paratrooperPrefab: {fileID: 4155697518971196, guid: 658d7bce1c94e3040b0492071ab67d6c,
-    type: 2}
-  minDropDelay: 2
-  maxDropDelay: 3
-  maxDrops: 2
 --- !u!114 &114148102667803514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -243,6 +227,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHitPoints: 10
   hitPoints: 0
+--- !u!114 &114612999920142754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1886536821226882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d428e79cee04fa741b0735b1b26e1f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paratrooperPrefab: {fileID: 4155697518971196, guid: 658d7bce1c94e3040b0492071ab67d6c,
+    type: 2}
+  minDropDelay: 1
+  maxDropDelay: 2
+  maxDrops: 2
 --- !u!114 &114614613542380700
 MonoBehaviour:
   m_ObjectHideFlags: 1
