@@ -200,6 +200,18 @@
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
             <key type="filename">Bunker.png</key>
+            <key type="filename">Guard-Arm01.png</key>
+            <key type="filename">Guard-Door01.png</key>
+            <key type="filename">Guard-Peek01.png</key>
+            <key type="filename">Guard-Peek02.png</key>
+            <key type="filename">Guard-Peek03.png</key>
+            <key type="filename">Guard-Peek04.png</key>
+            <key type="filename">Guard-Peek05.png</key>
+            <key type="filename">Guard-Peek06.png</key>
+            <key type="filename">Guard-Peek07.png</key>
+            <key type="filename">Guard-Peek08.png</key>
+            <key type="filename">Guard-Ready01.png</key>
+            <key type="filename">Guard-Ready02.png</key>
             <key type="filename">Gun.png</key>
             <key type="filename">Parachute.png</key>
             <key type="filename">Shell.png</key>
