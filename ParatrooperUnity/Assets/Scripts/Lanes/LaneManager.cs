@@ -8,11 +8,11 @@ public class LaneManager : MonoBehaviour
 	[SerializeField]
 	private FlyHorizontal planePrefab;
 	[SerializeField]
+	private FlyHorizontal[] planePrefabs;
+	[SerializeField]
 	private float spawnDelay = 2.0f;
 	[SerializeField]
 	private bool autoSpawn = true;
-	
-	public int PlaneCount => planes.Count;
 
 	private float delay;
 	private Transform spawnLeft;
@@ -62,7 +62,9 @@ public class LaneManager : MonoBehaviour
 	{
 		delay = spawnDelay;
 
-		return PoolingFactory.SpawnOrRecycle<FlyHorizontal>(planePrefab.transform, spawn.position);
+		var planeToSpawn = this.planePrefabs[Random.Range(0, this.planePrefabs.Length)];
+
+		return PoolingFactory.SpawnOrRecycle<FlyHorizontal>(planeToSpawn.transform, spawn.position);
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
