@@ -3,10 +3,8 @@
 public class HealthBar : MonoBehaviour
 {
 
-	[SerializeField]
-	private float health = 10.0f;
-	[SerializeField]
-	private float maxHealth = 10.0f;
+	public float Health { get; set; }= 10.0f;
+	public float MaxHealth { get; set; }= 10.0f;
 	
 	private RectTransform bar;
 	private float maxWidth = 0.0f;
@@ -27,6 +25,6 @@ public class HealthBar : MonoBehaviour
 	
 	void Update ()
 	{
-		bar.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, maxWidth / maxHealth * health);
+		bar.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, maxWidth / MaxHealth * Health);
 	}
 }

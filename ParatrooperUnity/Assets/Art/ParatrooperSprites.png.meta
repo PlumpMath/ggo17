@@ -27,6 +27,7 @@ TextureImporter:
     21300040: Guard-Ready02
     21300042: GuardIcon
     21300044: UIBorder
+    21300046: MeleeCloud
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -132,7 +133,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4
-        y: 124
+        y: 380
         width: 128
         height: 128
       alignment: 0
@@ -145,8 +146,8 @@ TextureImporter:
       name: Ground
       rect:
         serializedVersion: 2
-        x: 171
-        y: 136
+        x: 177
+        y: 343
         width: 2
         height: 2
       alignment: 0
@@ -159,8 +160,8 @@ TextureImporter:
       name: Guard-Arm01
       rect:
         serializedVersion: 2
-        x: 207
-        y: 175
+        x: 150
+        y: 314
         width: 11
         height: 25
       alignment: 9
@@ -173,8 +174,8 @@ TextureImporter:
       name: Guard-Door01
       rect:
         serializedVersion: 2
-        x: 138
-        y: 196
+        x: 210
+        y: 452
         width: 42
         height: 56
       alignment: 9
@@ -187,8 +188,8 @@ TextureImporter:
       name: Guard-Peek01
       rect:
         serializedVersion: 2
-        x: 243
-        y: 106
+        x: 177
+        y: 351
         width: 4
         height: 17
       alignment: 9
@@ -201,8 +202,8 @@ TextureImporter:
       name: Guard-Peek02
       rect:
         serializedVersion: 2
-        x: 239
-        y: 184
+        x: 177
+        y: 374
         width: 5
         height: 16
       alignment: 9
@@ -215,8 +216,8 @@ TextureImporter:
       name: Guard-Peek03
       rect:
         serializedVersion: 2
-        x: 224
-        y: 179
+        x: 167
+        y: 316
         width: 9
         height: 21
       alignment: 9
@@ -229,8 +230,8 @@ TextureImporter:
       name: Guard-Peek04
       rect:
         serializedVersion: 2
-        x: 237
-        y: 129
+        x: 132
+        y: 295
         width: 12
         height: 44
       alignment: 9
@@ -243,8 +244,8 @@ TextureImporter:
       name: Guard-Peek05
       rect:
         serializedVersion: 2
-        x: 224
-        y: 74
+        x: 158
+        y: 345
         width: 13
         height: 45
       alignment: 9
@@ -257,8 +258,8 @@ TextureImporter:
       name: Guard-Peek06
       rect:
         serializedVersion: 2
-        x: 204
-        y: 74
+        x: 138
+        y: 345
         width: 14
         height: 45
       alignment: 9
@@ -271,8 +272,8 @@ TextureImporter:
       name: Guard-Peek07
       rect:
         serializedVersion: 2
-        x: 229
-        y: 206
+        x: 232
+        y: 301
         width: 15
         height: 46
       alignment: 9
@@ -285,8 +286,8 @@ TextureImporter:
       name: Guard-Peek08
       rect:
         serializedVersion: 2
-        x: 207
-        y: 206
+        x: 210
+        y: 301
         width: 16
         height: 46
       alignment: 9
@@ -299,8 +300,8 @@ TextureImporter:
       name: Guard-Ready01
       rect:
         serializedVersion: 2
-        x: 172
-        y: 144
+        x: 244
+        y: 353
         width: 8
         height: 46
       alignment: 9
@@ -313,8 +314,8 @@ TextureImporter:
       name: Guard-Ready02
       rect:
         serializedVersion: 2
-        x: 207
-        y: 175
+        x: 150
+        y: 314
         width: 11
         height: 25
       alignment: 9
@@ -327,8 +328,8 @@ TextureImporter:
       name: GuardIcon
       rect:
         serializedVersion: 2
-        x: 204
-        y: 27
+        x: 210
+        y: 405
         width: 42
         height: 41
       alignment: 9
@@ -341,8 +342,8 @@ TextureImporter:
       name: Gun
       rect:
         serializedVersion: 2
-        x: 186
-        y: 167
+        x: 189
+        y: 347
         width: 15
         height: 85
       alignment: 9
@@ -352,11 +353,25 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
+      name: MeleeCloud
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 207
+        width: 118
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5084746, y: 0.5041322}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: Parachute
       rect:
         serializedVersion: 2
-        x: 186
-        y: 125
+        x: 138
+        y: 396
         width: 45
         height: 36
       alignment: 9
@@ -369,8 +384,8 @@ TextureImporter:
       name: Shell
       rect:
         serializedVersion: 2
-        x: 138
-        y: 124
+        x: 185
+        y: 327
         width: 13
         height: 14
       alignment: 9
@@ -384,7 +399,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4
-        y: 78
+        y: 334
         width: 122
         height: 40
       alignment: 9
@@ -397,8 +412,8 @@ TextureImporter:
       name: Trooper
       rect:
         serializedVersion: 2
-        x: 138
-        y: 144
+        x: 210
+        y: 353
         width: 28
         height: 46
       alignment: 0
@@ -411,8 +426,8 @@ TextureImporter:
       name: Turret
       rect:
         serializedVersion: 2
-        x: 132
-        y: 48
+        x: 138
+        y: 438
         width: 66
         height: 70
       alignment: 9
@@ -425,8 +440,8 @@ TextureImporter:
       name: UIBorder
       rect:
         serializedVersion: 2
-        x: 157
-        y: 130
+        x: 182
+        y: 313
         width: 8
         height: 8
       alignment: 9

@@ -4,6 +4,9 @@
 public class Health : MonoBehaviour, IRecyclable
 {
 
+	public float Percentage => hitPoints / initialHitPoints;
+	public float HitPoints => hitPoints;
+	
 	[SerializeField]
 	[Tooltip("Initial health.")]
 	private float initialHitPoints = 10.0f;
@@ -11,6 +14,7 @@ public class Health : MonoBehaviour, IRecyclable
 	[SerializeField]
 	[Tooltip("Current health. If not set will default to initial hit points. Death occurs at 0 HP.")]
 	private float hitPoints;
+	
 	private Pooled pooled;
 
 	private void Awake()
