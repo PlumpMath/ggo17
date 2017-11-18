@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: dd08d3c6d8e7cdf49b56450c69ee673d
-timeCreated: 1510755017
+timeCreated: 1511000843
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -25,6 +25,8 @@ TextureImporter:
     21300036: Guard-Ready01
     21300038: Guard-Door01
     21300040: Guard-Ready02
+    21300042: GuardIcon
+    21300044: UIBorder
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -143,8 +145,8 @@ TextureImporter:
       name: Ground
       rect:
         serializedVersion: 2
-        x: 80
-        y: 9
+        x: 171
+        y: 136
         width: 2
         height: 2
       alignment: 0
@@ -157,8 +159,8 @@ TextureImporter:
       name: Guard-Arm01
       rect:
         serializedVersion: 2
-        x: 80
-        y: 17
+        x: 207
+        y: 175
         width: 11
         height: 25
       alignment: 9
@@ -171,8 +173,8 @@ TextureImporter:
       name: Guard-Door01
       rect:
         serializedVersion: 2
-        x: 97
-        y: 16
+        x: 138
+        y: 196
         width: 42
         height: 56
       alignment: 9
@@ -185,8 +187,8 @@ TextureImporter:
       name: Guard-Peek01
       rect:
         serializedVersion: 2
-        x: 19
-        y: 10
+        x: 243
+        y: 106
         width: 4
         height: 17
       alignment: 9
@@ -199,8 +201,8 @@ TextureImporter:
       name: Guard-Peek02
       rect:
         serializedVersion: 2
-        x: 247
-        y: 236
+        x: 239
+        y: 184
         width: 5
         height: 16
       alignment: 9
@@ -213,8 +215,8 @@ TextureImporter:
       name: Guard-Peek03
       rect:
         serializedVersion: 2
-        x: 4
-        y: 6
+        x: 224
+        y: 179
         width: 9
         height: 21
       alignment: 9
@@ -227,8 +229,8 @@ TextureImporter:
       name: Guard-Peek04
       rect:
         serializedVersion: 2
-        x: 179
-        y: 28
+        x: 237
+        y: 129
         width: 12
         height: 44
       alignment: 9
@@ -241,8 +243,8 @@ TextureImporter:
       name: Guard-Peek05
       rect:
         serializedVersion: 2
-        x: 225
-        y: 52
+        x: 224
+        y: 74
         width: 13
         height: 45
       alignment: 9
@@ -255,8 +257,8 @@ TextureImporter:
       name: Guard-Peek06
       rect:
         serializedVersion: 2
-        x: 225
-        y: 103
+        x: 204
+        y: 74
         width: 14
         height: 45
       alignment: 9
@@ -269,8 +271,8 @@ TextureImporter:
       name: Guard-Peek07
       rect:
         serializedVersion: 2
-        x: 225
-        y: 154
+        x: 229
+        y: 206
         width: 15
         height: 46
       alignment: 9
@@ -283,7 +285,7 @@ TextureImporter:
       name: Guard-Peek08
       rect:
         serializedVersion: 2
-        x: 225
+        x: 207
         y: 206
         width: 16
         height: 46
@@ -297,8 +299,8 @@ TextureImporter:
       name: Guard-Ready01
       rect:
         serializedVersion: 2
-        x: 244
-        y: 51
+        x: 172
+        y: 144
         width: 8
         height: 46
       alignment: 9
@@ -311,8 +313,8 @@ TextureImporter:
       name: Guard-Ready02
       rect:
         serializedVersion: 2
-        x: 80
-        y: 17
+        x: 207
+        y: 175
         width: 11
         height: 25
       alignment: 9
@@ -322,11 +324,25 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
+      name: GuardIcon
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 27
+        width: 42
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6097561}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: Gun
       rect:
         serializedVersion: 2
-        x: 4
-        y: 33
+        x: 186
+        y: 167
         width: 15
         height: 85
       alignment: 9
@@ -339,8 +355,8 @@ TextureImporter:
       name: Parachute
       rect:
         serializedVersion: 2
-        x: 29
-        y: 6
+        x: 186
+        y: 125
         width: 45
         height: 36
       alignment: 9
@@ -354,7 +370,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 138
-        y: 134
+        y: 124
         width: 13
         height: 14
       alignment: 9
@@ -367,7 +383,7 @@ TextureImporter:
       name: Transport
       rect:
         serializedVersion: 2
-        x: 97
+        x: 4
         y: 78
         width: 122
         height: 40
@@ -381,8 +397,8 @@ TextureImporter:
       name: Trooper
       rect:
         serializedVersion: 2
-        x: 145
-        y: 26
+        x: 138
+        y: 144
         width: 28
         height: 46
       alignment: 0
@@ -395,13 +411,27 @@ TextureImporter:
       name: Turret
       rect:
         serializedVersion: 2
-        x: 25
+        x: 132
         y: 48
         width: 66
         height: 70
       alignment: 9
       pivot: {x: 0.5, y: 0.41428572}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UIBorder
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 130
+        width: 8
+        height: 8
+      alignment: 9
+      pivot: {x: 0.5, y: -1.5}
+      border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: -1
