@@ -14,6 +14,10 @@ public class Health : MonoBehaviour, IRecyclable
 	[SerializeField]
 	[Tooltip("Current health. If not set will default to initial hit points. Death occurs at 0 HP.")]
 	private float hitPoints;
+
+	[SerializeField]
+	[Tooltip("Optional destruction FX prefab.")]
+	private Transform destructionPrefab;
 	
 	private Pooled pooled;
 
@@ -50,6 +54,12 @@ public class Health : MonoBehaviour, IRecyclable
 		else
 		{
 			Destroy(transform.gameObject);
+		}
+
+		if (destructionPrefab != null)
+		{
+			var prefab = PoolingFactory.SpawnOrRecycle(destructionPrefab, transform.position);
+			prefab.localScale = transform.localScale;
 		}
 	}
 }

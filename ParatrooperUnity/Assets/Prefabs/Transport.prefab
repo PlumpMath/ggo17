@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1768089103890844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.704133, y: 0.6321159, z: 0}
+  m_LocalPosition: {x: -3.1272748, y: 2.100922, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4525200862855862}
@@ -243,6 +243,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHitPoints: 10
   hitPoints: 0
+  destructionPrefab: {fileID: 4362024551884822, guid: 7a4ef92d7d4e16144a23f3d6ab68242a,
+    type: 2}
 --- !u!114 &114614613542380700
 MonoBehaviour:
   m_ObjectHideFlags: 1
