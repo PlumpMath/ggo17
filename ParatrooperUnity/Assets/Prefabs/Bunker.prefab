@@ -45,6 +45,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1086696402108790
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4618060377237742}
+  - component: {fileID: 212220971333448566}
+  - component: {fileID: 114866206843070206}
+  m_Layer: 0
+  m_Name: MeleeText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1090001612450742
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,6 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4420799483223810}
   - component: {fileID: 212633860588604260}
+  - component: {fileID: 114488549972332180}
   m_Layer: 0
   m_Name: MeleeCloud
   m_TagString: Untagged
@@ -390,7 +408,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.026210636, y: -0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4618060377237742}
   m_Father: {fileID: 4855249370985704}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -434,6 +453,19 @@ Transform:
   m_Children:
   - {fileID: 4602684217925358}
   m_Father: {fileID: 4727456731622928}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4618060377237742
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086696402108790}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.011, y: -0.008, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4420799483223810}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4727456731622928
@@ -1054,6 +1086,25 @@ MonoBehaviour:
   pew: {fileID: 8300000, guid: cb9d5624dec4c4848a77dd11df02f831, type: 3}
   click: {fileID: 8300000, guid: 67c1eda663124724bbc544f56a0975ad, type: 3}
   DebugOn: 0
+--- !u!114 &114488549972332180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1090001612450742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c63b67cb1906d04f903b5c822d3a8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minRotation: -15
+  maxRotation: 15
+  rotationRate: 30
+  rotationDirection: 1
+  minScale: 0.8
+  maxScale: 1.2
+  scaleRate: 1.2
+  scaleDirection: 1
 --- !u!114 &114584097473937084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1130,6 +1181,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5ba453caf5816479a7ba5427eb7b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114866206843070206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086696402108790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c63b67cb1906d04f903b5c822d3a8c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minRotation: -15
+  maxRotation: 15
+  rotationRate: 60
+  rotationDirection: -1
+  minScale: 0.8
+  maxScale: 1.2
+  scaleRate: 2.4
+  scaleDirection: -1
 --- !u!114 &114964437636046888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1193,6 +1263,50 @@ SpriteRenderer:
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.28, y: 1.28}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!212 &212220971333448566
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086696402108790}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 245570077
+  m_SortingLayer: 1
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300048, guid: dd08d3c6d8e7cdf49b56450c69ee673d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.6328125, y: 0.1171875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
