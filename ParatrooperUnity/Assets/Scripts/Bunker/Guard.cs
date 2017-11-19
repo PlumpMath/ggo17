@@ -11,7 +11,8 @@ public class Guard : MonoBehaviour
 	private Transform armJoint;
 	private SpriteRenderer armRenderer;
 	private Gun gun;
-	
+
+	private bool enabled = false;
 	private bool cover = true;
 	private bool aimed = false;
 	private bool targets = false;
@@ -42,6 +43,21 @@ public class Guard : MonoBehaviour
 		{
 			targets = true;
 		}
+	}
+	
+	public void Enable()
+	{
+		enabled = true;
+		ReadyUp();
+	}
+	
+	public void Disable()
+	{
+		enabled = false;
+		armRenderer.color = TransparentBlack;
+		gun.InstantReload();
+		cover = true;
+		animator.SetBool("Cover", cover);
 	}
 
 	public void ToggleCover()
@@ -108,9 +124,11 @@ public class Guard : MonoBehaviour
 			
 			yield return null;
 		}
-
+	
 		cover = true;
 		animator.SetBool("Cover", cover);
+		
+		if (!enabled) yield break; // Assume the guard has died, so skip the reload that restarts the cycle
 		gun.Reload();
 	}
 }

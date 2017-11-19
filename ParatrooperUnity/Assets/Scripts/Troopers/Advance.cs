@@ -38,7 +38,7 @@ public class Advance : MonoBehaviour, IRecyclable
 
 		if (Advancing)
 		{
-			body.velocity = new Vector3(0 - body.position.x, 0, 0).normalized * 0.3f; 
+			body.velocity = new Vector3(0 - body.position.x, body.velocity.y, 0).normalized * 0.3f; 
 		}
 	}
 

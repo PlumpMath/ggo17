@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114544813774640918}
   - component: {fileID: 114051563778793378}
   - component: {fileID: 114316869026086454}
+  - component: {fileID: 114997096608177920}
   m_Layer: 10
   m_Name: Trooper
   m_TagString: Untagged
@@ -65,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1056028012967200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3891442, y: -0.4877497, z: 0}
+  m_LocalPosition: {x: -6.5175996, y: 0.8460621, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4863952467747300}
@@ -314,6 +315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHitPoints: 10
   hitPoints: 0
+  destructionPrefab: {fileID: 4762420624593892, guid: abc6628a961a0004cbc9bc1b151f724a,
+    type: 2}
 --- !u!114 &114535240979819786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -365,6 +368,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHitPoints: 10
   hitPoints: 0
+  destructionPrefab: {fileID: 4166026897999928, guid: 57657095c0b78e84782a65b93a62b3e5,
+    type: 2}
+--- !u!114 &114997096608177920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056028012967200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d2ca1df160ea14eb7f061de9fea385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 8
 --- !u!212 &212773369128702454
 SpriteRenderer:
   m_ObjectHideFlags: 1

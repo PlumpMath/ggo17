@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>4.5.0</string>
         <key>fileName</key>
-        <string>C:/GameDev/ggo17/Art/ParatrooperSprites.tps</string>
+        <string>C:/GameDev/Paratrooper/Art/ParatrooperSprites.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -212,6 +212,7 @@
             <key type="filename">Guard-Peek08.png</key>
             <key type="filename">Guard-Ready01.png</key>
             <key type="filename">Guard-Ready02.png</key>
+            <key type="filename">GuardIcon.png</key>
             <key type="filename">Gun.png</key>
             <key type="filename">Parachute.png</key>
             <key type="filename">Shell.png</key>

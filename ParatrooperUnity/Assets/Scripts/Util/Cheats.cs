@@ -6,8 +6,7 @@ public class Cheats : MonoBehaviour
 	public bool CheatsEnabled = true;
 	public LaneManager LaneTop;
 	public LaneManager LaneMiddle;
-	public Guard GuardLeft;
-	public Guard GuardRight;
+	public CrewManager CrewManager;
 	
 	void Update ()
 	{
@@ -48,7 +47,7 @@ public class Cheats : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Delete))
 		{
-			GuardLeft.ToggleCover();
+			CrewManager.AddGuardLeft();
 		}
 	}
 	
@@ -56,7 +55,7 @@ public class Cheats : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.PageDown))
 		{
-			GuardRight.ToggleCover();
+			CrewManager.AddGuardRight();
 		}
 	}
 }
