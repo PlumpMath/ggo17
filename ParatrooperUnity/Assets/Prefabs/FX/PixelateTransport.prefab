@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300014, guid: dd08d3c6d8e7cdf49b56450c69ee673d, type: 3}
   estimatedPixelSize: 0.009
+  StartingVelocity: 3
 --- !u!198 &198129247063755908
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -135,7 +136,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2

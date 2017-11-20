@@ -214,11 +214,14 @@
             <key type="filename">Guard-Ready02.png</key>
             <key type="filename">GuardIcon.png</key>
             <key type="filename">Gun.png</key>
+            <key type="filename">MeleeCloud.png</key>
+            <key type="filename">MeleeText.png</key>
             <key type="filename">Parachute.png</key>
             <key type="filename">Shell.png</key>
             <key type="filename">Transport.png</key>
             <key type="filename">Trooper.png</key>
             <key type="filename">Turret.png</key>
+            <key type="filename">UIBorder.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -241,6 +244,19 @@
                 <rect>1,1,1,1</rect>
                 <key>scale9Paddings</key>
                 <rect>1,1,1,1</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">ParticlePixel.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>0,0,1,1</rect>
+                <key>scale9Paddings</key>
+                <rect>0,0,1,1</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
