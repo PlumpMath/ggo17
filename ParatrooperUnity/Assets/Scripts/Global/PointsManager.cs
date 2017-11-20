@@ -1,56 +1,102 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Text))]
-public class PointsManager : MonoBehaviour {
+public class PointsManager : MonoBehaviour
+{
 
-	public static int Points { get; private set; }
+	public static PointsManager Instance = null;
 
-	private Text pointsText;  
+	public float Points => this.points;
+	public float TotalPoints => this.totalPoints;
+	public int TroopersKilled => this.troopersKilled;
+	public int TroopersFell => this.troopersFell;
+	public int TransportsKilled => this.transportKills;
 	
-	public static void AddPoints(int points)
+	[SerializeField]
+	[Tooltip("Current points available to spend.")]
+	private int points;
+
+	[SerializeField]
+	[Tooltip("Points for all time (including spent points).")]
+	private int totalPoints;
+	
+	[SerializeField]
+	[Tooltip("Number of troopers killed.")]
+	private int troopersKilled;
+	
+	[SerializeField]
+	[Tooltip("Number of troopers that fell to their deaths.")]
+	private int troopersFell;
+	
+	[SerializeField]
+	[Tooltip("Number of transports killed.")]
+	private int transportKills;
+
+	public void AddPoints(int points)
 	{
-		Points += points;
+		this.points += points;
+		this.totalPoints += points;
 	}
 
-	public static void DeductPoints(int points)
+	public void DeductPoints(int points)
 	{
-		Points -= points;
+		this.points -= points;
 
-		if (Points < 0)
+		if (this.points < 0)
 		{
-			Points = 0;
+			this.points = 0;
 		}
+	}
+
+	public void AddTrooperKill()
+	{
+		this.troopersKilled++;
+	}
+
+	public void AddTrooperFell()
+	{
+		this.troopersFell++;
+	}
+
+	public void AddTransportKill()
+	{
+		this.transportKills++;
 	}
 
 	private void Awake()
 	{
-		pointsText = GetComponent<Text>();
-	}
-	
-	void Update ()
-	{
-		pointsText.text = Points + "";
+		if(Instance != null && Instance != this)
+		{
+			Destroy(this.gameObject);
+		}
+		else
+		{
+			DontDestroyOnLoad(this.gameObject);
+			Instance = this;			
+		}
 	}
 
-	public void Save()
-	{
-		Data data = new Data();
-		data.test = "Hello world!";
-		
-		BinaryFormatter binaryFormatter = new BinaryFormatter();
-		FileStream file = File.Open(Application.persistentDataPath + "/slot1.sav", FileMode.Open);
-		binaryFormatter.Serialize(file, data);
-		file.Close();
-	}
+// Example of simple disk serialization
+//	public void Save()
+//	{
+//		Data data = new Data();
+//		data.test = "Hello world!";
+//		
+//		BinaryFormatter binaryFormatter = new BinaryFormatter();
+//		FileStream file = File.Open(Application.persistentDataPath + "/slot1.sav", FileMode.Open);
+//		binaryFormatter.Serialize(file, data);
+//		file.Close();
+//	}
 }
 
-[Serializable]
-class Data
-{
-	public String test;
-	
-}
+// Example of simple disk serialization
+//[Serializable]
+//class Data
+//{
+//	public String test;
+//	
+//}

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class CrewManager : MonoBehaviour
@@ -97,7 +98,7 @@ public class CrewManager : MonoBehaviour
 
         if (crew.Role == Role.Commander)
         {
-            Debug.Log("GAME OVER!!!");
+            SceneManager.LoadScene("GameOver");
         }
         else if (crew.Role == Role.Gunner)
         {

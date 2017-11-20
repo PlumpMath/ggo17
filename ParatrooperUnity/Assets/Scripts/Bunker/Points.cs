@@ -33,7 +33,24 @@ public class Points : MonoBehaviour
 	{
 		if(this.MustAwardPoints())
 		{
-			PointsManager.AddPoints(this.Value);			
+			PointsManager.Instance.AddPoints(this.Value);
+
+			var health = GetComponent<Health>();
+			if(name.StartsWith("Trooper"))
+			{
+				if(health.LastDamageFrom == DamageSource.Environment)
+				{
+					PointsManager.Instance.AddTrooperFell();
+				}
+				else if(health.LastDamageFrom == DamageSource.Player)
+				{
+					PointsManager.Instance.AddTrooperKill();
+				}
+			}
+			else if(name.StartsWith("Transport"))
+			{
+				PointsManager.Instance.AddTransportKill();
+			}
 		}
 	}
 }
