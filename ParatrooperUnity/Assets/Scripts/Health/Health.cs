@@ -6,6 +6,7 @@ public class Health : MonoBehaviour, IRecyclable
 
 	public float Percentage => hitPoints / initialHitPoints;
 	public float HitPoints => hitPoints;
+	public DamageSource LastDamageFrom => lastDamage;
 	
 	[SerializeField]
 	[Tooltip("Initial health.")]
@@ -18,7 +19,8 @@ public class Health : MonoBehaviour, IRecyclable
 	[SerializeField]
 	[Tooltip("Optional destruction FX prefab.")]
 	private Transform destructionPrefab;
-	
+
+	private DamageSource lastDamage;
 	private Pooled pooled;
 
 	private void Awake()
@@ -35,13 +37,20 @@ public class Health : MonoBehaviour, IRecyclable
 		}
 	}
 
-	public void Damage(float dmg)
+	public void Damage(Damage dmg)
 	{
-		hitPoints -= dmg;
+		Damage(dmg.Amount, dmg.Source);
 	}
 
+	public void Damage(float dmg, DamageSource source = DamageSource.Unknown)
+	{
+		lastDamage = source;
+		hitPoints -= dmg;
+	}
+	
 	public void Recycle()
 	{
+		lastDamage = DamageSource.Unknown;
 		hitPoints = initialHitPoints;
 	}
 

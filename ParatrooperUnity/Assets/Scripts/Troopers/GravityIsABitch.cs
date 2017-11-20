@@ -31,7 +31,7 @@ public class GravityIsABitch : MonoBehaviour
 			var baseDamage = collisionV * BaseDamageMultiplier;
 			var randomDamage = Random.value * (MaxDamageMultiplier - BaseDamageMultiplier) * collisionV;
 			var totalDamage = (float) Math.Round(baseDamage + randomDamage, 2);
-			health.Damage(totalDamage);
+			health.Damage(totalDamage, DamageSource.Environment);
 			
 			if (DebuggingOn)
 			{

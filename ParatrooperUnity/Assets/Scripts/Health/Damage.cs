@@ -4,7 +4,15 @@
 public class Damage : MonoBehaviour
 {
 
-	public float HP = 50.0f;
+	public float Amount => HP;
+	public DamageSource Source => source;
+	
+	[SerializeField]
+	private float HP = 50.0f;
+
+	[SerializeField]
+	[Tooltip("Source of the damage - typically used for scoring.")]
+	private DamageSource source;
 
 	private Pooled pooled;
 
@@ -18,9 +26,14 @@ public class Damage : MonoBehaviour
 		var health = other.GetComponent<Health>();
 		if (health != null)
 		{
-			health.Damage(HP);
+			health.Damage(this);
 
-			pooled.DestroyPooled();
+			DestroySelf();
 		}
+	}
+
+	private void DestroySelf()
+	{
+		pooled.DestroyPooled();
 	}
 }

@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 60
+  source: 3
 --- !u!212 &212221283564274262
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -31,8 +31,6 @@ public class Advance : MonoBehaviour, IRecyclable
 
 		if (!OnGround && nowOnGround && onGroundCount > 10)
 		{
-			Debug.Log("Landed... advancing...");
-
 			StartCoroutine(Posture());
 		}
 
