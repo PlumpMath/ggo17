@@ -27,6 +27,8 @@ GameObject:
   - component: {fileID: 114535240979819786}
   - component: {fileID: 114544813774640918}
   - component: {fileID: 114051563778793378}
+  - component: {fileID: 114316869026086454}
+  - component: {fileID: 114997096608177920}
   m_Layer: 10
   m_Name: Trooper
   m_TagString: Untagged
@@ -64,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1056028012967200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5618963, y: -2.064428, z: 0}
+  m_LocalPosition: {x: -6.5175996, y: 0.8460621, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4863952467747300}
@@ -278,6 +280,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AfterTime: 0
+--- !u!114 &114316869026086454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056028012967200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b1093da8434834c823a8dc4c97246e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114420620247713264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -302,6 +315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHitPoints: 10
   hitPoints: 0
+  destructionPrefab: {fileID: 4762420624593892, guid: abc6628a961a0004cbc9bc1b151f724a,
+    type: 2}
 --- !u!114 &114535240979819786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a0ea87b74558e47a543c643d32b0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Points: 10
+  Value: 10
 --- !u!114 &114589983673980942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,6 +368,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHitPoints: 10
   hitPoints: 0
+  destructionPrefab: {fileID: 4166026897999928, guid: 57657095c0b78e84782a65b93a62b3e5,
+    type: 2}
+--- !u!114 &114997096608177920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056028012967200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d2ca1df160ea14eb7f061de9fea385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 8
 --- !u!212 &212773369128702454
 SpriteRenderer:
   m_ObjectHideFlags: 1

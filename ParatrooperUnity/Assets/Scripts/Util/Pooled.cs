@@ -28,7 +28,7 @@ public class Pooled : MonoBehaviour, IRecyclable
 
     public void DestroyPooled()
     {
-        var points = GetComponent<AwardPointsOnDeath>();
+        var points = GetComponent<Points>();
         if (points != null)
         {
             points.OnDestroyPooled();
