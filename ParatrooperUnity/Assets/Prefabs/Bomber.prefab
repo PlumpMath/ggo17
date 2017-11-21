@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a0ea87b74558e47a543c643d32b0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Points: 100
+  Value: 200
 --- !u!114 &114486903511085926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,6 +255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHitPoints: 10
   hitPoints: 0
+  destructionPrefab: {fileID: 4362024551884822, guid: 7a4ef92d7d4e16144a23f3d6ab68242a,
+    type: 2}
 --- !u!114 &114903745262783258
 MonoBehaviour:
   m_ObjectHideFlags: 1

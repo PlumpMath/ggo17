@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
+  source: 1
 --- !u!114 &114608015121178602
 MonoBehaviour:
   m_ObjectHideFlags: 1
