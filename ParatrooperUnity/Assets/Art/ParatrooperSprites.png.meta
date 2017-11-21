@@ -29,6 +29,9 @@ TextureImporter:
     21300044: UIBorder
     21300046: MeleeCloud
     21300048: MeleeText
+    21300050: Bomb
+    21300052: ParticlePixel
+    21300054: Shrapnel
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -130,6 +133,20 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+      name: Bomb
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 330
+        width: 31
+        height: 16
+      alignment: 9
+      pivot: {x: 0.41935483, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: Bunker
       rect:
         serializedVersion: 2
@@ -162,7 +179,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 292
+        y: 278
         width: 11
         height: 25
       alignment: 9
@@ -302,7 +319,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 244
-        y: 300
+        y: 278
         width: 8
         height: 46
       alignment: 9
@@ -316,7 +333,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 292
+        y: 278
         width: 11
         height: 25
       alignment: 9
@@ -396,6 +413,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
+      name: ParticlePixel
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 345
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: Shell
       rect:
         serializedVersion: 2
@@ -405,6 +436,20 @@ TextureImporter:
         height: 14
       alignment: 9
       pivot: {x: 0.46153846, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Shrapnel
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 309
+        width: 13
+        height: 8
+      alignment: 9
+      pivot: {x: 0.46153846, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -428,7 +473,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 210
-        y: 300
+        y: 278
         width: 28
         height: 46
       alignment: 0

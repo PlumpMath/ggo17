@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4066910167471066}
   - component: {fileID: 50108093762107740}
-  - component: {fileID: 114608015121178602}
   - component: {fileID: 114668435665372196}
   - component: {fileID: 114381326369620016}
   - component: {fileID: 212032503733098942}
@@ -93,17 +92,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 10
   source: 1
---- !u!114 &114608015121178602
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1101150543467808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d4c4106b0b243b7a1f2c17dc853948a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114668435665372196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -150,7 +138,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: dd08d3c6d8e7cdf49b56450c69ee673d, type: 3}
+  m_Sprite: {fileID: 21300054, guid: dd08d3c6d8e7cdf49b56450c69ee673d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

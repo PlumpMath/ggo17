@@ -1,29 +1,33 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
-public class BombTrigger : MonoBehaviour, IRecyclable
+[RequireComponent(typeof(Pooled))]
+public class BombTrigger : MonoBehaviour, IPooledOnDestroy
 {
+
     [SerializeField]
-    private Explosion explosionPrefab;
+    private ShrapnelBlast shrapnelBlastPrefab;
 
-    private bool exploded;
+    [SerializeField]
+    private Shockwave shockwavePrefab;
     
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(this.exploded)
-        {
-            return;
-        }
-        
-        Debug.Log("Explosion triggered");
-        var explosion = PoolingFactory.SpawnOrRecycle(this.explosionPrefab.transform, this.transform.position);
+    private Pooled pooled;
 
-        this.gameObject.SetActive(false);
-        this.exploded = true;
+    public void Awake()
+    {
+        this.pooled = this.GetComponent<Pooled>();
     }
 
-    public void Recycle()
+    public void OnDestroyPooled()
     {
-        this.exploded = false;
+        if (this.shrapnelBlastPrefab != null)
+            PoolingFactory.SpawnOrRecycle(this.shrapnelBlastPrefab.transform, this.transform.position);
+        
+        if (this.shockwavePrefab != null)
+            PoolingFactory.SpawnOrRecycle(this.shockwavePrefab.transform, this.transform.position);
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        this.pooled.DestroyPooled();
     }
 }

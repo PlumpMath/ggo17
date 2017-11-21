@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-public class Points : MonoBehaviour
+public class Points : MonoBehaviour, IPooledOnDestroy
 {
 
 	public int Value = 1;

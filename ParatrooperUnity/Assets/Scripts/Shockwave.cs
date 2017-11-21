@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class Shockwave : MonoBehaviour
+public class Shockwave : MonoBehaviour, IRecyclable
 {
     private CircleCollider2D blastRadius;
     
@@ -19,5 +19,10 @@ public class Shockwave : MonoBehaviour
     public void Trigger()
     {
         //put trigger code here
+    }
+
+    public void Recycle()
+    {
+        // reset to starting radius here... 
     }
 }

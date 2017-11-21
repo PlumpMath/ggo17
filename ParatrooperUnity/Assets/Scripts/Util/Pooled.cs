@@ -28,10 +28,9 @@ public class Pooled : MonoBehaviour, IRecyclable
 
     public void DestroyPooled()
     {
-        var points = GetComponent<Points>();
-        if (points != null)
+        foreach(var component in GetComponents<IPooledOnDestroy>())
         {
-            points.OnDestroyPooled();
+            component.OnDestroyPooled();
         }
 
         gameObject.SetActive(false);
