@@ -1,28 +1,68 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-[RequireComponent(typeof(CircleCollider2D))]
-public class Shockwave : MonoBehaviour, IRecyclable
+[RequireComponent(typeof(Pooled))]
+public class Shockwave : Damage, IRecyclable
 {
-    private CircleCollider2D blastRadius;
+
+    [SerializeField]
+    [Tooltip("Percentage of damage done at the maximum distance from the center of the explosion.")]
+    protected float DropOff = 0.1f;
+
+    [SerializeField]
+    [Tooltip("Time to grow from 0 scale to 1 scale in seconds.")]
+    protected float growSeconds = 0.5f;
     
-    private void Awake()
+    private float scale;
+    private ISet<GameObject> damaged = new HashSet<GameObject>();
+    
+    protected override void Awake()
     {
-        this.blastRadius = this.GetComponent<CircleCollider2D>();
-        this.blastRadius.enabled = false;
+        base.Awake();
+
+        this.Recycle();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected void Update()
     {
-        throw new System.NotImplementedException();
+        if(this.scale < 1.0f)
+        {
+            this.scale += Time.deltaTime * (1.0f / this.growSeconds);
+
+            if(this.scale > 1.0f)
+            {
+                this.scale = 1.0f;
+            }
+            
+            this.transform.localScale = new Vector3(this.scale, this.scale, this.scale);
+        }
+        else
+        {
+            this.DestroySelf();
+        }
     }
 
-    public void Trigger()
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
-        //put trigger code here
+        if(this.damaged.Contains(other.transform.root.gameObject)) return;
+
+        var health = other.GetComponent<Health>();
+        if(health == null) return;
+        
+        var thisCollider = this.GetComponent<Collider2D>();
+        var estimatedMaxDistance = (thisCollider.bounds.size.x + thisCollider.bounds.size.y) / 2.0f / Mathf.Max(this.scale, 0.001f) / 2.0f;
+        var distance = (this.transform.position - other.bounds.ClosestPoint(this.transform.position)).magnitude;
+        var dmg = (estimatedMaxDistance - distance) * (1.0f - this.DropOff) * Amount + Amount * this.DropOff;
+        Debug.Log("ShockwaveDamage: " + other.name + ": " + dmg);
+
+        health.Damage(dmg, Source);
+        this.damaged.Add(other.transform.root.gameObject);
     }
 
     public void Recycle()
     {
-        // reset to starting radius here... 
+        this.scale = 0.0f;
+        this.transform.localScale = new Vector3(0, 0, 0);
+        this.damaged.Clear();
     }
 }

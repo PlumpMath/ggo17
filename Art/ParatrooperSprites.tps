@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>4.5.0</string>
         <key>fileName</key>
-        <string>C:/GameDev/Paratrooper/Art/ParatrooperSprites.tps</string>
+        <string>C:/GameDev/ggo17/Art/ParatrooperSprites.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -219,6 +219,7 @@
             <key type="filename">MeleeText.png</key>
             <key type="filename">Parachute.png</key>
             <key type="filename">Shell.png</key>
+            <key type="filename">Shockwave.png</key>
             <key type="filename">Shrapnel.png</key>
             <key type="filename">Transport.png</key>
             <key type="filename">Trooper.png</key>

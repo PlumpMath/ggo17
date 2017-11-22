@@ -5,8 +5,9 @@ public class DestroyBullets : MonoBehaviour {
     {
         var pooled = other.gameObject.GetComponent<Pooled>();
         var damage = other.gameObject.GetComponent<Damage>();
+        var shockwave = other.gameObject.GetComponent<Shockwave>();
 
-        if (pooled != null && damage != null) // Probably a bullet
+        if (pooled != null && damage != null && shockwave == null) // Probably a bullet
         {
             pooled.DestroyPooled();
         }

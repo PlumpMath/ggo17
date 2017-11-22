@@ -32,6 +32,7 @@ TextureImporter:
     21300050: Bomb
     21300052: ParticlePixel
     21300054: Shrapnel
+    21300056: Shockwave
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -178,8 +179,8 @@ TextureImporter:
       name: Guard-Arm01
       rect:
         serializedVersion: 2
-        x: 128
-        y: 278
+        x: 156
+        y: 273
         width: 11
         height: 25
       alignment: 9
@@ -248,8 +249,8 @@ TextureImporter:
       name: Guard-Peek04
       rect:
         serializedVersion: 2
-        x: 192
-        y: 276
+        x: 138
+        y: 259
         width: 12
         height: 44
       alignment: 9
@@ -262,7 +263,7 @@ TextureImporter:
       name: Guard-Peek05
       rect:
         serializedVersion: 2
-        x: 173
+        x: 179
         y: 275
         width: 13
         height: 45
@@ -276,7 +277,7 @@ TextureImporter:
       name: Guard-Peek06
       rect:
         serializedVersion: 2
-        x: 153
+        x: 159
         y: 324
         width: 14
         height: 45
@@ -290,7 +291,7 @@ TextureImporter:
       name: Guard-Peek07
       rect:
         serializedVersion: 2
-        x: 132
+        x: 138
         y: 323
         width: 15
         height: 46
@@ -332,8 +333,8 @@ TextureImporter:
       name: Guard-Ready02
       rect:
         serializedVersion: 2
-        x: 128
-        y: 278
+        x: 156
+        y: 273
         width: 11
         height: 25
       alignment: 9
@@ -375,7 +376,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4
-        y: 207
+        y: 119
         width: 118
         height: 121
       alignment: 9
@@ -430,7 +431,7 @@ TextureImporter:
       name: Shell
       rect:
         serializedVersion: 2
-        x: 153
+        x: 159
         y: 304
         width: 13
         height: 14
@@ -441,10 +442,24 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
+      name: Shockwave
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 246
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: Shrapnel
       rect:
         serializedVersion: 2
-        x: 128
+        x: 138
         y: 309
         width: 13
         height: 8
@@ -458,8 +473,8 @@ TextureImporter:
       name: Transport
       rect:
         serializedVersion: 2
-        x: 4
-        y: 334
+        x: 128
+        y: 200
         width: 122
         height: 40
       alignment: 9
@@ -500,8 +515,8 @@ TextureImporter:
       name: UIBorder
       rect:
         serializedVersion: 2
-        x: 173
-        y: 361
+        x: 198
+        y: 264
         width: 8
         height: 8
       alignment: 9
