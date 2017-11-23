@@ -1243,6 +1243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40bc91103223ba94cbf08d700f2fa1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bunkerManager: {fileID: 11400000, guid: bd2c193a52ff5c84c8b05dd83cc50658, type: 2}
   GuardLeft: {fileID: 114584097473937084}
   GuardRight: {fileID: 114824825995658520}
   MeleeCloud: {fileID: 212633860588604260}

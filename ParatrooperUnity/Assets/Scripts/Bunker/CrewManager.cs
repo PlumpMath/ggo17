@@ -12,6 +12,9 @@ public class CrewManager : MonoBehaviour
     public float MaxHitPoints => maxHitPoints;
     public float HealthPercentage => hitPoints / maxHitPoints;
 
+    [SerializeField]
+    private BunkerManager bunkerManager;
+    
     [SerializeField] [Tooltip("Root transform of the left guard structure.")] private Guard GuardLeft;
     [SerializeField] [Tooltip("Root transform of the right guard structure.")] private Guard GuardRight;
     [SerializeField] [Tooltip("Melee dust cloud.")] private SpriteRenderer MeleeCloud;
@@ -50,6 +53,15 @@ public class CrewManager : MonoBehaviour
 
         AddCommander();
         AddGunner();
+
+        if(this.bunkerManager.LeftGuard)
+        {
+            this.AddGuardLeft();
+        }
+        if(this.bunkerManager.RightGuard)
+        {
+            this.AddGuardRight();
+        }
     }
 
     void Update()
