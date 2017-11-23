@@ -8,31 +8,32 @@ public class Damage : MonoBehaviour
 	public DamageSource Source => source;
 	
 	[SerializeField]
-	private float HP = 50.0f;
+	protected float HP = 50.0f;
 
 	[SerializeField]
 	[Tooltip("Source of the damage - typically used for scoring.")]
-	private DamageSource source;
+	protected DamageSource source;
 
-	private Pooled pooled;
+	protected Pooled pooled;
 
-	private void Awake()
+	protected virtual void Awake()
 	{
 		pooled = GetComponent<Pooled>();
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)
+	protected virtual void OnTriggerEnter2D(Collider2D other)
 	{
 		var health = other.GetComponent<Health>();
 		if (health != null)
 		{
 			health.Damage(this);
+			Debug.Log("Damaged " + other.name);
 
 			DestroySelf();
 		}
 	}
 
-	private void DestroySelf()
+	protected void DestroySelf()
 	{
 		pooled.DestroyPooled();
 	}

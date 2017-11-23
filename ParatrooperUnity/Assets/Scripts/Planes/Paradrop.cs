@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using UnityEngine;
 
 public class Paradrop : MonoBehaviour, IRecyclable
 {
@@ -14,15 +15,13 @@ public class Paradrop : MonoBehaviour, IRecyclable
 	
 	[SerializeField]
 	private int maxDrops = 2;
-	
-	private Transform spawn;
+
+	private Transform Spawn => this.transform;
 	private int dropped;
 	private float timer;
 	
 	void Awake()
 	{
-		spawn = transform.Find("Spawn");
-
 		Recycle();
 	}
 	
@@ -51,7 +50,7 @@ public class Paradrop : MonoBehaviour, IRecyclable
 	
 	private void Drop()
 	{
-		PoolingFactory.SpawnOrRecycle(paratrooperPrefab, spawn.position);
+		PoolingFactory.SpawnOrRecycle(paratrooperPrefab, this.Spawn.position);
 		
 		dropped++;
 		
