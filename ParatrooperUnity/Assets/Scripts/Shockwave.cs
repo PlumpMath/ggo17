@@ -46,13 +46,16 @@ public class Shockwave : Damage, IRecyclable
     {
         if(this.damaged.Contains(other.transform.root.gameObject)) return;
 
-        var health = other.GetComponent<Health>();
+        var health = other.transform.root.GetComponent<Health>();
         if(health == null) return;
         
         var thisCollider = this.GetComponent<Collider2D>();
         var estimatedMaxDistance = (thisCollider.bounds.size.x + thisCollider.bounds.size.y) / 2.0f / Mathf.Max(this.scale, 0.001f) / 2.0f;
         var distance = (this.transform.position - other.bounds.ClosestPoint(this.transform.position)).magnitude;
-        var dmg = (estimatedMaxDistance - distance) * (1.0f - this.DropOff) * Amount + Amount * this.DropOff;
+        var distancePercentage = ((estimatedMaxDistance - distance) / estimatedMaxDistance);
+        var dropOffDamage = (1.0f - this.DropOff) * Amount;
+        var guaranteedDamage = Amount * this.DropOff;
+        var dmg = distancePercentage * dropOffDamage + guaranteedDamage;
         Debug.Log("ShockwaveDamage: " + other.name + ": " + dmg);
 
         health.Damage(dmg, Source);

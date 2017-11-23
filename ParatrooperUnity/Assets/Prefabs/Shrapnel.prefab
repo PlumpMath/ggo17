@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114381326369620016}
   - component: {fileID: 212032503733098942}
   - component: {fileID: 58234532659241284}
+  - component: {fileID: 114282994534479552}
   m_Layer: 13
   m_Name: Shrapnel
   m_TagString: Untagged
@@ -79,6 +80,21 @@ CircleCollider2D:
   m_Offset: {x: 0.00390625, y: 0}
   serializedVersion: 2
   m_Radius: 0.0546875
+--- !u!114 &114282994534479552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1101150543467808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6be46a8dc930af041a50b94cbf858635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minRotationPerSecond: 0
+  maxRotationPerSecond: 180
+  minScale: 0.8
+  maxScale: 1.2
 --- !u!114 &114381326369620016
 MonoBehaviour:
   m_ObjectHideFlags: 1

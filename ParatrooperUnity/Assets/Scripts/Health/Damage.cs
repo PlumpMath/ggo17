@@ -27,6 +27,7 @@ public class Damage : MonoBehaviour
 		if (health != null)
 		{
 			health.Damage(this);
+			Debug.Log("Damaged " + other.name);
 
 			DestroySelf();
 		}

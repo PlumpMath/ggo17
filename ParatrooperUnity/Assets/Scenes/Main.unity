@@ -617,7 +617,7 @@ Prefab:
         type: 2}
       propertyPath: planePrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 114614613542380700, guid: 078e6d4fa4714524d9b5d40606ec3653,
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b32c155207ecf74429cef0ad2d45aa15, type: 2}
@@ -706,7 +706,7 @@ Prefab:
     - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
         type: 2}
       propertyPath: planePrefabs.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4279562384898574, guid: b32c155207ecf74429cef0ad2d45aa15, type: 2}
       propertyPath: m_LocalPosition.x
@@ -765,6 +765,120 @@ Prefab:
     - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
         type: 2}
       propertyPath: planePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[9]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[11]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[12]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[13]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[14]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[15]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[16]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[17]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[18]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[19]
+      value: 
+      objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
+        type: 2}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: planePrefabs.Array.data[20]
       value: 
       objectReference: {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f,
         type: 2}

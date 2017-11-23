@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>4.5.0</string>
         <key>fileName</key>
-        <string>C:/GameDev/ggo17/Art/ParatrooperSprites.tps</string>
+        <string>C:/GameDev/Paratrooper/Art/ParatrooperSprites.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -200,6 +200,12 @@
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
             <key type="filename">Bomb.png</key>
+            <key type="filename">Bunker-01.png</key>
+            <key type="filename">Bunker-02.png</key>
+            <key type="filename">Bunker-03.png</key>
+            <key type="filename">Bunker-04.png</key>
+            <key type="filename">Bunker-05.png</key>
+            <key type="filename">Bunker-06.png</key>
             <key type="filename">Bunker.png</key>
             <key type="filename">Guard-Arm01.png</key>
             <key type="filename">Guard-Door01.png</key>

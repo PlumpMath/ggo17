@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114784391723689428}
   - component: {fileID: 114449082896960498}
   - component: {fileID: 114165907023116426}
+  - component: {fileID: 114393267290600498}
   m_Layer: 13
   m_Name: Bomb
   m_TagString: Untagged
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1199481712521872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.20383024, y: 3.6023912, z: 0}
+  m_LocalPosition: {x: -0.02, y: 3.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,7 +64,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &61620560379605890
 BoxCollider2D:
@@ -105,6 +106,20 @@ MonoBehaviour:
     type: 2}
   shockwavePrefab: {fileID: 114059532934339934, guid: 35b81f84943267145b9cde8230066103,
     type: 2}
+--- !u!114 &114393267290600498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1199481712521872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51127347e3e4a954292761d8135fabdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialHitPoints: 10
+  hitPoints: 0
+  destructionPrefab: {fileID: 0}
 --- !u!114 &114449082896960498
 MonoBehaviour:
   m_ObjectHideFlags: 1
