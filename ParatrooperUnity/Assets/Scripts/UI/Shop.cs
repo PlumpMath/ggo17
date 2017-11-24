@@ -19,6 +19,16 @@ public class Shop : MonoBehaviour
 		}
 	}
 
+	public void QuitGame()
+	{
+		Application.Quit();
+	}
+
+	public void TitleMenu()
+	{
+		SceneManager.LoadScene("Title");
+	}
+	
 	public void ResetGame()
 	{
 		Debug.Log("WOHOO!");
