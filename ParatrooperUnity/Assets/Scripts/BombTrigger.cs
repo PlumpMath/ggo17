@@ -3,7 +3,6 @@
 [RequireComponent(typeof(Pooled))]
 public class BombTrigger : MonoBehaviour, IPooledOnDestroy
 {
-
     [SerializeField]
     private ShrapnelBlast shrapnelBlastPrefab;
 
@@ -14,7 +13,7 @@ public class BombTrigger : MonoBehaviour, IPooledOnDestroy
 
     private Vector3 shrapnelSpawnPoint;
 
-    public void Awake()
+    private void Awake()
     {
         this.pooled = this.GetComponent<Pooled>();
     }
