@@ -14,7 +14,7 @@ public class BombTrigger : MonoBehaviour, IPooledOnDestroy
 
     private Vector3 shrapnelSpawnPoint;
 
-    public void Awake()
+    private void Awake()
     {
         this.pooled = this.GetComponent<Pooled>();
     }
