@@ -18,6 +18,11 @@ public class ShrapnelBlast : MonoBehaviour
     
     public void Blast()
     {
+        this.Blast(this.shrapnelPrefab);
+    }
+
+    public void Blast(Rigidbody2D shrapnelPrefab)
+    {
         var degreesPerItem = 360.0f / this.numberOfProjectiles;
         var degreesVariance = degreesPerItem * this.directionVariancePercentage;
         var halfDegreesVariance = degreesVariance / 2.0f;
@@ -25,7 +30,7 @@ public class ShrapnelBlast : MonoBehaviour
         for(var i = 0; i < this.numberOfProjectiles; i++)
         {
             var angle = i * degreesPerItem + Random.Range(-halfDegreesVariance, halfDegreesVariance);
-            var shrapnel = PoolingFactory.SpawnOrRecycle<Rigidbody2D>(this.shrapnelPrefab.transform, this.transform.position);
+            var shrapnel = PoolingFactory.SpawnOrRecycle<Rigidbody2D>(shrapnelPrefab.transform, this.transform.position);
 
             ApplyForceFromblast(shrapnel, angle);
         }

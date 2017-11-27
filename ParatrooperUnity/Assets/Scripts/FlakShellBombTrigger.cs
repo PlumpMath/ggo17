@@ -2,8 +2,11 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Pooled))]
-public class TimedBombTrigger : MonoBehaviour, IPooledOnDestroy, IRecyclable
+public class FlakShellBombTrigger : MonoBehaviour, IPooledOnDestroy, IRecyclable
 {
+    [SerializeField]
+    private Rigidbody2D shrapnelPrefab;
+    
     [SerializeField]
     private ShrapnelBlast shrapnelBlastPrefab;
 
@@ -44,7 +47,7 @@ public class TimedBombTrigger : MonoBehaviour, IPooledOnDestroy, IRecyclable
         if(this.shrapnelBlastPrefab != null)
         {
             Debug.Log("Spawned shrapnel");
-            PoolingFactory.SpawnOrRecycle<ShrapnelBlast>(this.shrapnelBlastPrefab.transform, this.shrapnelSpawnPoint).Blast();
+            PoolingFactory.SpawnOrRecycle<ShrapnelBlast>(this.shrapnelBlastPrefab.transform, this.shrapnelSpawnPoint).Blast(this.shrapnelPrefab);
 
         }
 
