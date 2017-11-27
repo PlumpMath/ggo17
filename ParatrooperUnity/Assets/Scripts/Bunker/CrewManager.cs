@@ -14,6 +14,7 @@ public class CrewManager : MonoBehaviour
 
     [SerializeField]
     private BunkerManager bunkerManager;
+    // TODO: Should really move bulk of Crew & CrewManager to ScriptableObjects... this should just drive Unity mechanical bits... 
 
     [SerializeField]
     [Tooltip("Root transform of the left guard structure.")]
@@ -135,10 +136,12 @@ public class CrewManager : MonoBehaviour
         else if(crew.Role == Role.GuardLeft)
         {
             GuardLeft.Disable();
+            this.bunkerManager.LeftGuardDied();
         }
         else if(crew.Role == Role.GuardRight)
         {
             GuardRight.Disable();
+            this.bunkerManager.RightGuardDied();
         }
     }
 

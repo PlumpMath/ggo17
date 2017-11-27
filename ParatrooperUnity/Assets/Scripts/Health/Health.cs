@@ -20,9 +20,13 @@ public class Health : MonoBehaviour, IRecyclable
 	[Tooltip("Optional destruction FX prefab.")]
 	private Transform destructionPrefab;
 
+	[SerializeField]
+	[Tooltip("Recycle or not?")]
+	private bool recycle = true;
+
 	private DamageSource lastDamage;
 	private Pooled pooled;
-
+	
 	private void Awake()
 	{
 		pooled = GetComponent<Pooled>();
@@ -35,6 +39,11 @@ public class Health : MonoBehaviour, IRecyclable
 		{
 			DestroySelf();
 		}
+	}
+
+	public void InitHitPoints(int hitPoints)
+	{
+		this.hitPoints = hitPoints;
 	}
 
 	public void Damage(Damage dmg)
@@ -50,6 +59,11 @@ public class Health : MonoBehaviour, IRecyclable
 	
 	public void Recycle()
 	{
+		if(!this.recycle)
+		{
+			return;
+		}
+		
 		lastDamage = DamageSource.Unknown;
 		hitPoints = initialHitPoints;
 	}

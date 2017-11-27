@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 114372344582660032}
   - component: {fileID: 95150269961251358}
   - component: {fileID: 114776404423440896}
+  - component: {fileID: 114535656275274010}
   m_Layer: 8
   m_Name: Bunker
   m_TagString: Player
@@ -1086,6 +1087,7 @@ MonoBehaviour:
   hitPoints: 500
   destructionPrefab: {fileID: 4371804735195584, guid: 628fe6f65da3a2041a58a0e98bb2431d,
     type: 2}
+  recycle: 0
 --- !u!114 &114397398312884584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1126,6 +1128,18 @@ MonoBehaviour:
   maxScale: 1.2
   scaleRate: 1.2
   scaleDirection: 1
+--- !u!114 &114535656275274010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1918913987437488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa63b12af816594f8d9782b0907a239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bunkerManager: {fileID: 11400000, guid: bd2c193a52ff5c84c8b05dd83cc50658, type: 2}
 --- !u!114 &114584097473937084
 MonoBehaviour:
   m_ObjectHideFlags: 1

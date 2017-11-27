@@ -10,6 +10,9 @@ public class Shop : MonoBehaviour
 
 	[SerializeField]
 	private Text PointsValue;
+
+	[SerializeField]
+	private Text DayValue;
 	
 	[SerializeField]
 	private Text GuardCostLeft;
@@ -22,6 +25,10 @@ public class Shop : MonoBehaviour
 		if(this.PointsValue != null)
 		{
 			this.PointsValue.text = this.bunkerManager.Points + "";
+		}
+		if(this.DayValue != null)
+		{
+			this.DayValue.text = this.bunkerManager.Day + "";
 		}
 		if(this.GuardCostLeft != null)
 		{
