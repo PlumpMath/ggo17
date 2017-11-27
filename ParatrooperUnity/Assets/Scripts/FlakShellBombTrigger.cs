@@ -18,8 +18,6 @@ public class FlakShellBombTrigger : MonoBehaviour, IPooledOnDestroy, IRecyclable
 
     private float time;
 
-    private Vector2 shrapnelSpawnPoint;
-    
     private Pooled pooled;
 
     private void Awake()
@@ -37,8 +35,6 @@ public class FlakShellBombTrigger : MonoBehaviour, IPooledOnDestroy, IRecyclable
             return;
         }
         
-        this.shrapnelSpawnPoint = this.transform.position;
-        
         this.pooled.DestroyPooled();
     }
 
@@ -47,7 +43,7 @@ public class FlakShellBombTrigger : MonoBehaviour, IPooledOnDestroy, IRecyclable
         if(this.shrapnelBlastPrefab != null)
         {
             Debug.Log("Spawned shrapnel");
-            PoolingFactory.SpawnOrRecycle<ShrapnelBlast>(this.shrapnelBlastPrefab.transform, this.shrapnelSpawnPoint).Blast(this.shrapnelPrefab);
+            PoolingFactory.SpawnOrRecycle<ShrapnelBlast>(this.shrapnelBlastPrefab.transform, this.transform.position).Blast(this.shrapnelPrefab);
 
         }
 

@@ -128,6 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee24113eb2c94423a6d73303aa1776ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shrapnelPrefab: {fileID: 50403462035236902, guid: aa96e1010cd163840a084f5285efb3ca,
+    type: 2}
   shrapnelBlastPrefab: {fileID: 114385569775807484, guid: a1cc7fa4f33ded248ac963185c7d5a8f,
     type: 2}
   shockwavePrefab: {fileID: 114059532934339934, guid: 35b81f84943267145b9cde8230066103,
