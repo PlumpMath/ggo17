@@ -11,12 +11,27 @@ public class Shop : MonoBehaviour
 	[SerializeField]
 	private Text PointsValue;
 	
+	[SerializeField]
+	private Text GuardCostLeft;
+	
+	[SerializeField]
+	private Text GuardCostRight;
+	
 	void Update ()
 	{
 		if(this.PointsValue != null)
 		{
 			this.PointsValue.text = this.bunkerManager.Points + "";
 		}
+		if(this.GuardCostLeft != null)
+		{
+			this.GuardCostLeft.text = this.bunkerManager.GuardPrice + "";
+		}
+		if(this.GuardCostRight != null)
+		{
+			this.GuardCostRight.text = this.bunkerManager.GuardPrice + "";
+		}
+		
 	}
 
 	public void QuitGame()
@@ -31,7 +46,6 @@ public class Shop : MonoBehaviour
 	
 	public void ResetGame()
 	{
-		Debug.Log("WOHOO!");
 		this.bunkerManager.NewGame();
 		SceneManager.LoadScene("Shop");
 	}
