@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 50356332565437600}
   - component: {fileID: 61118302916364414}
   - component: {fileID: 114494598078469762}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Lane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4621674881170766}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SpawnRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4332457194797188}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SpawnLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,8 +65,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1452186743422272}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: -0.05859375}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.5, z: -0.05859375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4332457194797188}
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6efa61e55c043ca44b591141b6a0bd02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TransportPlane: {fileID: 4978859327640900, guid: 078e6d4fa4714524d9b5d40606ec3653,
-    type: 2}
-  SpawnDelay: 2
-  AutoSpawn: 1
+  planePrefabs:
+  - {fileID: 114486903511085926, guid: 0e94872882e91ec4098a98af979d681f, type: 2}
+  spawnDelay: 4
+  autoSpawn: 1

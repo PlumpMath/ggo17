@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 50611546113896566}
   - component: {fileID: 61830239486499202}
   - component: {fileID: 212716272738946942}
+  - component: {fileID: 114349946360120642}
+  - component: {fileID: 114617961509991806}
   m_Layer: 9
   m_Name: Ground
   m_TagString: Untagged
@@ -36,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1653931761603532}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07, y: -4.5, z: 0}
+  m_LocalPosition: {x: 0, y: -4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,19 +76,44 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.6505108, y: 0}
+  m_Offset: {x: 0, y: -0.23471242}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.015625, y: 0.015625}
-    newSize: {x: 18, y: 0.05}
+    newSize: {x: 22, y: 0.05}
     adaptiveTilingThreshold: 1
     drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.773556, y: 0.05}
+  m_Size: {x: 22, y: 0.5318464}
   m_EdgeRadius: 0
+--- !u!114 &114349946360120642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1653931761603532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041b6011d594b634aab17cdc5ff19178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseDamageMultiplier: 3
+  MaxDamageMultiplier: 4
+  DebuggingOn: 0
+--- !u!114 &114617961509991806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1653931761603532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83e1fa5bb4fa6142a5cf86327f3e1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212716272738946942
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -126,7 +153,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 18, y: 0.05}
+  m_Size: {x: 22, y: 0.05}
   m_AdaptiveModeThreshold: 1
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -308,6 +308,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bunkerManager: {fileID: 11400000, guid: bd2c193a52ff5c84c8b05dd83cc50658, type: 2}
   PointsValue: {fileID: 0}
+  DayValue: {fileID: 0}
+  GuardCostLeft: {fileID: 0}
+  GuardCostRight: {fileID: 0}
 --- !u!114 &1549149626
 MonoBehaviour:
   m_ObjectHideFlags: 0

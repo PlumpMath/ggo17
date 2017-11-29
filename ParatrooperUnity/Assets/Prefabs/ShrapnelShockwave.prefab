@@ -9,51 +9,49 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1893304153785658}
+  m_RootGameObject: {fileID: 1542528648781102}
   m_IsPrefabParent: 1
---- !u!1 &1893304153785658
+--- !u!1 &1542528648781102
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4171438284532654}
-  - component: {fileID: 212065841589524480}
-  - component: {fileID: 50782485029412464}
-  - component: {fileID: 58012231195657470}
-  - component: {fileID: 114238068784687752}
-  - component: {fileID: 114674243938962300}
-  - component: {fileID: 114453849607279838}
-  - component: {fileID: 114686635125264750}
+  - component: {fileID: 4913574808338156}
+  - component: {fileID: 58219176314104664}
+  - component: {fileID: 114316648662765206}
+  - component: {fileID: 212310588607730352}
+  - component: {fileID: 50939059331719132}
+  - component: {fileID: 114487606636603948}
   m_Layer: 12
-  m_Name: FlakShell
+  m_Name: ShrapnelShockwave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4171438284532654
+--- !u!4 &4913574808338156
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893304153785658}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.985, y: -2.89, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 1542528648781102}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.8995833, y: -2.3093739, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50782485029412464
+--- !u!50 &50939059331719132
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893304153785658}
-  m_BodyType: 0
+  m_GameObject: {fileID: 1542528648781102}
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -66,83 +64,55 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &58012231195657470
+--- !u!58 &58219176314104664
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893304153785658}
+  m_GameObject: {fileID: 1542528648781102}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00390625, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.0546875
---- !u!114 &114238068784687752
+  m_Radius: 0.5
+--- !u!114 &114316648662765206
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893304153785658}
+  m_GameObject: {fileID: 1542528648781102}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da6d61eccdee4bcea29918e98269b8e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 660253547f8943cfbf3cfb2d57b16a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114453849607279838
+  HP: 50
+  source: 3
+  DebugOn: 0
+  DropOff: 0.1
+  growSeconds: 0.2
+--- !u!114 &114487606636603948
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893304153785658}
+  m_GameObject: {fileID: 1542528648781102}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed177146277befa48a44d0970a28c2ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AfterTime: 1.5
---- !u!114 &114674243938962300
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893304153785658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 672f5cdcf70689b49a06a9b2aa70fa28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 60
-  source: 3
-  DebugOn: 0
---- !u!114 &114686635125264750
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893304153785658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee24113eb2c94423a6d73303aa1776ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shrapnelPrefab: {fileID: 50403462035236902, guid: aa96e1010cd163840a084f5285efb3ca,
-    type: 2}
-  shrapnelBlastPrefab: {fileID: 114385569775807484, guid: a1cc7fa4f33ded248ac963185c7d5a8f,
-    type: 2}
-  shockwavePrefab: {fileID: 114316648662765206, guid: 4f04b3c42ad78484f9875e7f8dda8bef,
-    type: 2}
-  fuseTime: 0.5
-  DebugOn: 0
---- !u!212 &212065841589524480
+  AfterTime: 0
+--- !u!212 &212310588607730352
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893304153785658}
+  m_GameObject: {fileID: 1542528648781102}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -171,12 +141,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: dd08d3c6d8e7cdf49b56450c69ee673d, type: 3}
+  m_Sprite: {fileID: 21300056, guid: dd08d3c6d8e7cdf49b56450c69ee673d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.1015625, y: 0.109375}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

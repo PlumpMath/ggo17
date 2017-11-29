@@ -44,9 +44,9 @@ public class Shockwave : Damage, IRecyclable
 
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        if(this.damaged.Contains(other.transform.root.gameObject)) return;
+        if(this.damaged.Contains(other.transform.gameObject)) return;
 
-        var health = other.transform.root.GetComponent<Health>();
+        var health = other.transform.GetComponent<Health>();
         if(health == null) return;
         
         var thisCollider = this.GetComponent<Collider2D>();
@@ -59,7 +59,7 @@ public class Shockwave : Damage, IRecyclable
         Debug.Log("ShockwaveDamage: " + other.name + ": " + dmg);
 
         health.Damage(dmg, Source);
-        this.damaged.Add(other.transform.root.gameObject);
+        this.damaged.Add(other.transform.gameObject);
     }
 
     public void Recycle()
