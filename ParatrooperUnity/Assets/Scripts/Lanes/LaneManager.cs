@@ -33,7 +33,8 @@ namespace Lanes
 
         void Awake()
         {
-            this.delay = this.spawnDelay;
+            this.ResetDelay();
+            
             this.spawnLeft = this.transform.Find("SpawnLeft");
             this.spawnRight = this.transform.Find("SpawnRight");
             this.planes = new List<Transform>(2);
@@ -60,7 +61,7 @@ namespace Lanes
 
         private FlyHorizontal Spawn(Transform spawn)
         {
-            this.delay = this.spawnDelay;
+            this.ResetDelay();
 
             var planeToSpawn = this.planePrefabs[Random.Range(0, this.planePrefabs.Length)];
 
@@ -81,6 +82,8 @@ namespace Lanes
             var plane = other.GetComponent<FlyHorizontal>();
             if(plane != null)
             {
+                this.ResetDelay();
+                
                 this.planes.Remove(other.transform);
                 var pooled = other.transform.GetComponent<Pooled>();
                 if(pooled != null)
@@ -88,6 +91,11 @@ namespace Lanes
                     pooled.DestroyPooled();
                 }
             }
+        }
+        
+        private void ResetDelay()
+        {
+            this.delay = this.spawnDelay;
         }
     }
 }

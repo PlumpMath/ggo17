@@ -22,6 +22,12 @@ public class Shop : MonoBehaviour
     [SerializeField]
     private Text FlakCost;
 
+    [SerializeField]
+    private Text BunkerHP;
+
+    [SerializeField]
+    private Text RepairCost;
+
     void Update()
     {
         if(this.PointsValue != null)
@@ -43,6 +49,14 @@ public class Shop : MonoBehaviour
         if(this.FlakCost != null)
         {
             this.FlakCost.text = this.bunkerManager.Flak ? "-" : this.bunkerManager.FlakPrice + "";
+        }
+        if(this.BunkerHP != null)
+        {
+            this.BunkerHP.text = "(" + this.bunkerManager.HitPoints + "/" + this.bunkerManager.InitialHitPoints + ")";
+        }
+        if(this.RepairCost != null)
+        {
+            this.RepairCost.text = this.bunkerManager.RepairPrice + "";
         }
     }
 
@@ -75,6 +89,11 @@ public class Shop : MonoBehaviour
     public void BuyFlak()
     {
         this.bunkerManager.BuyFlak();
+    }
+
+    public void BuyRepair()
+    {
+        this.bunkerManager.BuyRepair();
     }
     
     public void BeginGame()
