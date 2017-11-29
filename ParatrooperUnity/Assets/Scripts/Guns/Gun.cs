@@ -47,6 +47,11 @@ public class Gun : MonoBehaviour
 		coolDown -= Time.deltaTime;
 	}
 
+	public void SetAmmo(Bullet bullet)
+	{
+		this.bulletPrefab = bullet;
+	}
+	
 	public void Fire(Transform gunJoint)
 	{
 		if (coolDown > 0.0f)

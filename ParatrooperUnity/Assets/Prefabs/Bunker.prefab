@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 50045873458882826}
   - component: {fileID: 82085279842660804}
   - component: {fileID: 114397398312884584}
+  - component: {fileID: 114455848564432298}
   m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
@@ -1099,7 +1100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad62b7d0d8d40e79c536b218f8bb9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 114128118628438098, guid: 235ec6d072c31f64d8edf79e2197b742,
+  bulletPrefab: {fileID: 114238068784687752, guid: da5e7cbc97673ef4d854d7e7662c9b95,
     type: 2}
   bulletSpawn: {fileID: 4734536895418502}
   shotVelocity: 750
@@ -1109,6 +1110,21 @@ MonoBehaviour:
   pew: {fileID: 8300000, guid: cb9d5624dec4c4848a77dd11df02f831, type: 3}
   click: {fileID: 8300000, guid: 67c1eda663124724bbc544f56a0975ad, type: 3}
   DebugOn: 0
+--- !u!114 &114455848564432298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1688487726891538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 201903fed9d573f45b76fafd718ad852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultShot: {fileID: 114128118628438098, guid: 235ec6d072c31f64d8edf79e2197b742,
+    type: 2}
+  flakShot: {fileID: 114238068784687752, guid: da5e7cbc97673ef4d854d7e7662c9b95, type: 2}
+  bunkerManager: {fileID: 11400000, guid: bd2c193a52ff5c84c8b05dd83cc50658, type: 2}
 --- !u!114 &114488549972332180
 MonoBehaviour:
   m_ObjectHideFlags: 1

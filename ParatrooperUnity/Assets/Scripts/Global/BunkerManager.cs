@@ -21,6 +21,7 @@ public class BunkerManager : ScriptableObject //SingletonSO<BunkerManager>
 
     public bool LeftGuard { get; private set; } = false;
     public bool RightGuard { get; private set; } = false;
+    public bool Flak { get; private set; } = false;
 
     public void SurvivedDay(int bunkerHP)
     {
@@ -43,6 +44,9 @@ public class BunkerManager : ScriptableObject //SingletonSO<BunkerManager>
         }
     }
 
+    public int FlakPrice => 5000;
+
+
     public void NewGame()
     {
         Points = StartPoints;
@@ -53,6 +57,7 @@ public class BunkerManager : ScriptableObject //SingletonSO<BunkerManager>
         GuardsBought = 0;
         LeftGuard = false;
         RightGuard = false;
+        Flak = false;
     }
 
     public void BuyLeftGuard()
@@ -72,6 +77,15 @@ public class BunkerManager : ScriptableObject //SingletonSO<BunkerManager>
             Points -= GuardPrice;
             RightGuard = true;
             GuardsBought++;
+        }
+    }
+
+    public void BuyFlak()
+    {
+        if(!Flak && Points > FlakPrice)
+        {
+            Points -= FlakPrice;
+            Flak = true;
         }
     }
 
