@@ -18,6 +18,11 @@ namespace Lanes
         [SerializeField]
         private float doubleSpawnChance = 0.0f;
 
+        public void SetAutoSpawn(bool value)
+        {
+            this.autoSpawn = value;
+        }
+        
         private float delay;
         private Transform spawnLeft;
         private Transform spawnRight;
@@ -128,6 +133,16 @@ namespace Lanes
         private void ResetDelay()
         {
             this.delay = this.spawnDelay;
+        }
+
+        public void SetPlanes(FlyHorizontal[] transforms)
+        {
+            this.planePrefabs = transforms;
+        }
+
+        public void SetDoubleSpawnChance(float doubleSpawnChance)
+        {
+            this.doubleSpawnChance = doubleSpawnChance;
         }
     }
 }
