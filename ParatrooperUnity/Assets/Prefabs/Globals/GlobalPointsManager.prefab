@@ -40,6 +40,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 0
   totalPoints: 0
+  troopersKilled: 0
+  troopersFell: 0
+  transportKills: 0
+  bunkerManager: {fileID: 11400000, guid: bd2c193a52ff5c84c8b05dd83cc50658, type: 2}
 --- !u!224 &224174156820821498
 RectTransform:
   m_ObjectHideFlags: 1

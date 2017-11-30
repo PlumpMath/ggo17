@@ -98,6 +98,7 @@ public class Shop : MonoBehaviour
     
     public void BeginGame()
     {
+        PointsManager.Instance.Points = this.bunkerManager.Points;
         SceneManager.LoadScene("Main");
     }
 }

@@ -4,11 +4,12 @@ using UnityEngine.SceneManagement;
 
 /* Global game state manager */
 [CreateAssetMenu(menuName = "State/BunkerManager")]
-public class BunkerManager : ScriptableObject //SingletonSO<BunkerManager>
+public class BunkerManager : ScriptableObject
 {
     public const int StartPoints = 0;
     public int InitialHitPoints => 500;
-    
+
+    public int TotalPoints { get; private set; } = 0;
     public int Points { get; private set; } = StartPoints;
     public int Day { get; private set; } = 1;
     public float DayDurationSeconds { get; private set; } = 60.0f;
@@ -66,6 +67,7 @@ public class BunkerManager : ScriptableObject //SingletonSO<BunkerManager>
 
     public void NewGame()
     {
+        TotalPoints = StartPoints;
         Points = StartPoints;
         Day = 1;
         DayDurationSeconds = 60.0f;
