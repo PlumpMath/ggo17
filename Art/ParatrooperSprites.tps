@@ -269,6 +269,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">Shop.png</key>
             <key type="filename">Title.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
