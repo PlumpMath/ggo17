@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>4.5.0</string>
         <key>fileName</key>
-        <string>C:/GameDev/Paratrooper/Art/ParatrooperSprites.tps</string>
+        <string>C:/GameDev/ggo17/Art/ParatrooperSprites.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -266,6 +266,19 @@
                 <rect>0,0,1,1</rect>
                 <key>scale9Paddings</key>
                 <rect>0,0,1,1</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">Title.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>120,68,240,135</rect>
+                <key>scale9Paddings</key>
+                <rect>120,68,240,135</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

@@ -21,6 +21,11 @@ public class BombTrigger : MonoBehaviour, IPooledOnDestroy
         this.pooled = this.GetComponent<Pooled>();
     }
 
+    private void Update()
+    {
+        this.shrapnelSpawnPoint = this.transform.position;
+    }
+
     public void OnDestroyPooled()
     {
         if(this.shrapnelBlastPrefab != null)

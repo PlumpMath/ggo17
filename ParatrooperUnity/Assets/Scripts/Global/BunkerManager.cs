@@ -16,12 +16,12 @@ public class BunkerManager : ScriptableObject
 
     public int HitPoints { get; private set; } 
 
-    public int GuardBasePrice { get; set; } = 600;
-    public float GuardPriceIncrease { get; set; } = 2.0f;
+    public int GuardBasePrice { get; set; } = 500;
+    public int GuardPriceIncrease { get; set; } = 250;
     public int GuardsBought { get; private set; } = 0;
 
     public int RepairBasePrice { get; set; } = 1000;
-    public float RepairPriceIncrease { get; set; } = 1.5f;
+    public int RepairPriceIncrease { get; set; } = 500;
     public int RepairsBought { get; private set; } = 0;
 
     public bool LeftGuard { get; private set; } = false;
@@ -35,35 +35,10 @@ public class BunkerManager : ScriptableObject
         HitPoints = bunkerHP;
         SceneManager.LoadScene("Shop");
     }
-    
-    public int GuardPrice
-    {
-        get
-        {
-            var result = GuardBasePrice;
-            for(int i = 0; i < GuardsBought; i++)
-            {
-                result = (int)Math.Round(result * GuardPriceIncrease);
-            }
-            return result;
-        }
-    }
 
+    public int GuardPrice => GuardBasePrice + GuardPriceIncrease * GuardsBought;
+    public int RepairPrice => RepairBasePrice + RepairPriceIncrease * RepairsBought;
     public int FlakPrice => 5000;
-
-    public int RepairPrice
-    {
-        get
-        {
-            var result = RepairBasePrice;
-            for(int i = 0; i < RepairsBought; i++)
-            {
-                result = (int)Math.Round(result * RepairPriceIncrease);
-            }
-            return result;
-        }
-        
-    }
 
     public void NewGame()
     {
