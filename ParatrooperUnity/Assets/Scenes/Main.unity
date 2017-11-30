@@ -703,6 +703,11 @@ Prefab:
       propertyPath: m_Name
       value: LaneMiddle
       objectReference: {fileID: 0}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: doubleSpawnChance
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b32c155207ecf74429cef0ad2d45aa15, type: 2}
   m_IsPrefabParent: 0
@@ -822,6 +827,11 @@ Prefab:
     - target: {fileID: 1452186743422272, guid: b32c155207ecf74429cef0ad2d45aa15, type: 2}
       propertyPath: m_Name
       value: LaneTop
+      objectReference: {fileID: 0}
+    - target: {fileID: 114494598078469762, guid: b32c155207ecf74429cef0ad2d45aa15,
+        type: 2}
+      propertyPath: doubleSpawnChance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b32c155207ecf74429cef0ad2d45aa15, type: 2}

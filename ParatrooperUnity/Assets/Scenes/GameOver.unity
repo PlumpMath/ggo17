@@ -555,6 +555,9 @@ MonoBehaviour:
   DayValue: {fileID: 1830819711}
   GuardCostLeft: {fileID: 0}
   GuardCostRight: {fileID: 0}
+  FlakCost: {fileID: 0}
+  BunkerHP: {fileID: 0}
+  RepairCost: {fileID: 0}
 --- !u!1 &578789948
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6666667, g: 0.6666667, b: 0.6666667, a: 1}
+  m_Color: {r: 0, g: 0.6666667, b: 0.6666667, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1504,7 +1507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6666667, g: 0.6666667, b: 0.6666667, a: 1}
+  m_Color: {r: 0, g: 0.6666667, b: 0.6666667, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

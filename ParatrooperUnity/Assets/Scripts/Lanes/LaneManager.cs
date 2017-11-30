@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Lanes
@@ -13,6 +14,9 @@ namespace Lanes
 
         [SerializeField]
         private bool autoSpawn = true;
+
+        [SerializeField]
+        private float doubleSpawnChance = 0.0f;
 
         private float delay;
         private Transform spawnLeft;
@@ -29,6 +33,39 @@ namespace Lanes
         {
             var plane = this.Spawn(this.spawnRight);
             plane.FlyLeft();
+        }
+
+        IEnumerator SpawnMultiple(int count, bool left)
+        {
+            this.SpawnOnSide(left);
+            count--;
+
+            float delay = this.spawnDelay / 2.0f;
+            while(delay > 0.0f && count > 0)
+            {
+                delay -= Time.deltaTime;
+
+                if(delay < 0.0f)
+                {
+                    this.SpawnOnSide(left);
+                    count--;
+                    delay = this.spawnDelay / 2.0f;
+                }
+
+                yield return null;
+            }
+        }
+
+        private void SpawnOnSide(bool left)
+        {
+            if(left)
+            {
+                this.SpawnLeft();
+            }
+            else
+            {
+                this.SpawnRight();
+            }
         }
 
         void Awake()
@@ -48,14 +85,9 @@ namespace Lanes
 
             if(this.planes.Count == 0 && this.delay < 0)
             {
-                if(Random.value < 0.5f)
-                {
-                    this.SpawnLeft();
-                }
-                else
-                {
-                    this.SpawnRight();
-                }
+                bool left = Random.value < 0.5f ? true : false;
+                int spawnCount = 1 + (Random.value < this.doubleSpawnChance ? 1 : 0);
+                StartCoroutine(SpawnMultiple(spawnCount, left));
             }
         }
 
