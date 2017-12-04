@@ -8,6 +8,12 @@ public class Cheats : MonoBehaviour
 	public LaneManager LaneTop;
 	public LaneManager LaneMiddle;
 	public CrewManager CrewManager;
+	public DisplayTime displayTime;
+
+	void Awake()
+	{
+		this.CheatsEnabled = Application.isEditor;
+	}
 	
 	void Update ()
 	{
@@ -18,6 +24,8 @@ public class Cheats : MonoBehaviour
 
 		GuardLeftCheats();
 		GuardRightCheats();
+
+		PauseTimer();
 	}
 
 	private void LaneTopCheats()
@@ -57,6 +65,14 @@ public class Cheats : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.PageDown))
 		{
 			CrewManager.AddGuardRight();
+		}
+	}
+	
+	private void PauseTimer()
+	{
+		if(Input.GetKeyDown(KeyCode.Pause))
+		{
+			this.displayTime.TogglePause();
 		}
 	}
 }

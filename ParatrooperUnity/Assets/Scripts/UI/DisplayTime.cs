@@ -37,7 +37,8 @@ public class DisplayTime : MonoBehaviour
 	}
 
 	private float secondsLeft;
-	
+	private bool pause = false;
+
 	void Start ()
 	{
 		this.secondsLeft = this.bunkerManager.DayDurationSeconds;
@@ -49,6 +50,8 @@ public class DisplayTime : MonoBehaviour
 	}
 	
 	void Update () {
+		if (this.pause) return;
+		
 		if(this.secondsLeft > 0.0f)
 		{
 			this.secondsLeft -= Time.deltaTime;
@@ -75,5 +78,10 @@ public class DisplayTime : MonoBehaviour
 		{
 			this.secondsValue.text = Seconds + "";
 		}
+	}
+
+	public void TogglePause()
+	{
+		this.pause = !this.pause;
 	}
 }

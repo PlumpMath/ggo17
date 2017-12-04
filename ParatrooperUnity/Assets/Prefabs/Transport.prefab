@@ -243,7 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paratrooperPrefab: {fileID: 4155697518971196, guid: 658d7bce1c94e3040b0492071ab67d6c,
     type: 2}
-  minDropDelay: 1.5
+  minDropDelay: 2
   maxDropDelay: 3
   maxDrops: 2
 --- !u!114 &114614613542380700
