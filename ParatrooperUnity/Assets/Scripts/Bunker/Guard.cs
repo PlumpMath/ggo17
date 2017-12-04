@@ -44,7 +44,7 @@ public class Guard : MonoBehaviour
 	
 	private void OnTriggerStay2D(Collider2D other)
 	{
-		if (other.GetComponent<Health>()) // Assume soldier
+		if (other.GetComponent<Health>() && !other.CompareTag("Player")) // Assume soldier
 		{
 			targets = true;
 		}
