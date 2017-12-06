@@ -8,6 +8,9 @@ public class BombTrigger : MonoBehaviour, IPooledOnDestroy
 
     [SerializeField]
     private Shockwave shockwavePrefab;
+
+    [SerializeField]
+    private bool DebugOn = false;
     
     private Pooled pooled;
 
@@ -18,11 +21,16 @@ public class BombTrigger : MonoBehaviour, IPooledOnDestroy
         this.pooled = this.GetComponent<Pooled>();
     }
 
+    private void Update()
+    {
+        this.shrapnelSpawnPoint = this.transform.position;
+    }
+
     public void OnDestroyPooled()
     {
         if(this.shrapnelBlastPrefab != null)
         {
-            Debug.Log("Spawned shrapnel");
+            if (DebugOn) Debug.Log("Spawned shrapnel");
             PoolingFactory.SpawnOrRecycle<ShrapnelBlast>(this.shrapnelBlastPrefab.transform, this.shrapnelSpawnPoint).Blast();
 
         }
@@ -40,7 +48,7 @@ public class BombTrigger : MonoBehaviour, IPooledOnDestroy
         {
             this.shrapnelSpawnPoint = this.shrapnelSpawnPoint + new Vector3(0, 0.1f, 0);
         }
-        Debug.Log("ShrapnelSpawn: " + this.shrapnelSpawnPoint);
+        if (DebugOn) Debug.Log("ShrapnelSpawn: " + this.shrapnelSpawnPoint);
         
         this.pooled.DestroyPooled();
     }

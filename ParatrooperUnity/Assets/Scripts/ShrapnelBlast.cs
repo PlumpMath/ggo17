@@ -15,6 +15,9 @@ public class ShrapnelBlast : MonoBehaviour
 
     [SerializeField]
     private float forceOnShrapnel;
+
+    [SerializeField]
+    private bool DebugOn = false;
     
     public void Blast()
     {
@@ -35,7 +38,7 @@ public class ShrapnelBlast : MonoBehaviour
             ApplyForceFromblast(shrapnel, angle);
         }
         
-        Debug.Log("Spawned " + this.numberOfProjectiles + " shrapnel");
+        if (this.DebugOn) Debug.Log("Spawned " + this.numberOfProjectiles + " shrapnel");
     }
 
     private void ApplyForceFromblast(Rigidbody2D shrapnel, float angle)

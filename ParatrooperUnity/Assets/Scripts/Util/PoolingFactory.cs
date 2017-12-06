@@ -135,5 +135,10 @@ public class PoolingFactory : MonoBehaviour
 	{
 		factory = transform;
 		poolPrefabStatic = poolPrefab;
+		
+		objectsByPrefab.Clear();
+		pools.Clear();
+		lastObjectReused.Clear();
+
 	}
 }

@@ -12,15 +12,37 @@ public class CrewManager : MonoBehaviour
     public float MaxHitPoints => maxHitPoints;
     public float HealthPercentage => hitPoints / maxHitPoints;
 
-    [SerializeField] [Tooltip("Root transform of the left guard structure.")] private Guard GuardLeft;
-    [SerializeField] [Tooltip("Root transform of the right guard structure.")] private Guard GuardRight;
-    [SerializeField] [Tooltip("Melee dust cloud.")] private SpriteRenderer MeleeCloud;
-    [SerializeField] [Tooltip("Melee duration in seconds for a fully health attacker.")] private float MeleeDuration;
+    [SerializeField]
+    private BunkerManager bunkerManager;
+    // TODO: Should really move bulk of Crew & CrewManager to ScriptableObjects... this should just drive Unity mechanical bits... 
 
-    [SerializeField] private Crew CommanderPrefab;
-    [SerializeField] private Crew GunnerPrefab;
-    [SerializeField] private Crew GuardLeftPrefab;
-    [SerializeField] private Crew GuardRightPrefab;
+    [SerializeField]
+    [Tooltip("Root transform of the left guard structure.")]
+    private Guard GuardLeft;
+
+    [SerializeField]
+    [Tooltip("Root transform of the right guard structure.")]
+    private Guard GuardRight;
+
+    [SerializeField]
+    [Tooltip("Melee dust cloud.")]
+    private SpriteRenderer MeleeCloud;
+
+    [SerializeField]
+    [Tooltip("Melee duration in seconds for a fully health attacker.")]
+    private float MeleeDuration;
+
+    [SerializeField]
+    private Crew CommanderPrefab;
+
+    [SerializeField]
+    private Crew GunnerPrefab;
+
+    [SerializeField]
+    private Crew GuardLeftPrefab;
+
+    [SerializeField]
+    private Crew GuardRightPrefab;
 
     private Transform crewParent;
     private List<Crew> crewMembers = new List<Crew>(10);
@@ -38,23 +60,30 @@ public class CrewManager : MonoBehaviour
         crewParent = transform.Find("Crew");
         MeleeCloud.gameObject.SetActive(false);
 
-        foreach (Rank rank in Enum.GetValues(typeof(Rank)))
+        foreach(Rank rank in Enum.GetValues(typeof(Rank)))
         {
             damageGroups.Add(rank, new List<Crew>());
         }
 
-        foreach (Role role in Enum.GetValues(typeof(Role)))
+        foreach(Role role in Enum.GetValues(typeof(Role)))
         {
             crewCounts.Add(role, 0);
         }
 
         AddCommander();
         AddGunner();
+
+        if(this.bunkerManager.LeftGuard)
+        {
+            this.AddGuardLeft();
+        }
+        if(this.bunkerManager.RightGuard)
+        {
+            this.AddGuardRight();
+        }
     }
 
-    void Update()
-    {
-    }
+    void Update() { }
 
     private bool AddMember(Crew prefab)
     {
@@ -80,7 +109,7 @@ public class CrewManager : MonoBehaviour
 
     private bool AddMemberWithLimit(Crew prefab, int limit)
     {
-        if (crewCounts[prefab.Role] >= limit)
+        if(crewCounts[prefab.Role] >= limit)
         {
             Debug.LogWarning("Already more than " + (limit) + " " + Enum.GetName(typeof(Role), prefab.Role) + "...");
             return false;
@@ -96,21 +125,23 @@ public class CrewManager : MonoBehaviour
         crewCounts[crew.Role]--;
         damageGroups[crew.Rank].Remove(crew);
 
-        if (crew.Role == Role.Commander)
+        if(crew.Role == Role.Commander)
         {
             SceneManager.LoadScene("GameOver");
         }
-        else if (crew.Role == Role.Gunner)
+        else if(crew.Role == Role.Gunner)
         {
             Debug.Log("TODO: Gunner Dead - shoot slower!");
         }
-        else if (crew.Role == Role.GuardLeft)
+        else if(crew.Role == Role.GuardLeft)
         {
             GuardLeft.Disable();
+            this.bunkerManager.LeftGuardDied();
         }
-        else if (crew.Role == Role.GuardRight)
+        else if(crew.Role == Role.GuardRight)
         {
             GuardRight.Disable();
+            this.bunkerManager.RightGuardDied();
         }
     }
 
@@ -128,7 +159,7 @@ public class CrewManager : MonoBehaviour
     {
         var added = AddMemberWithLimit(GuardLeftPrefab, 1);
 
-        if (added)
+        if(added)
         {
             GuardLeft.Enable();
         }
@@ -138,7 +169,7 @@ public class CrewManager : MonoBehaviour
     {
         var added = AddMemberWithLimit(GuardRightPrefab, 1);
 
-        if (added)
+        if(added)
         {
             GuardRight.Enable();
         }
@@ -156,7 +187,7 @@ public class CrewManager : MonoBehaviour
     IEnumerator ResolveMeleeAttack(float attackerHealthPercentage, float attackerDamage)
     {
         var duration = MeleeDuration;
-        while (duration > 0.0f)
+        while(duration > 0.0f)
         {
             duration -= Time.deltaTime;
 
@@ -167,7 +198,7 @@ public class CrewManager : MonoBehaviour
 
         meleesInProgress--;
 
-        if (meleesInProgress == 0)
+        if(meleesInProgress == 0)
         {
             MeleeCloud.gameObject.SetActive(false);
         }
@@ -175,17 +206,16 @@ public class CrewManager : MonoBehaviour
 
     private void TakeDamage(float damage)
     {
-        foreach (Rank rank in Enum.GetValues(typeof(Rank)))
+        foreach(Rank rank in Enum.GetValues(typeof(Rank)))
         {
             var ofRank = damageGroups[rank];
 
-            if (ofRank.Count == 0)
+            if(ofRank.Count == 0)
             {
                 continue;
             }
 
-
-            ofRank[(int) Random.Range(0, ofRank.Count)].Damage(damage);
+            ofRank[(int)Random.Range(0, ofRank.Count)].Damage(damage);
             return;
         }
     }

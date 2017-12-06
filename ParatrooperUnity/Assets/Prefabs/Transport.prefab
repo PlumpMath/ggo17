@@ -229,6 +229,7 @@ MonoBehaviour:
   hitPoints: 0
   destructionPrefab: {fileID: 4362024551884822, guid: 7a4ef92d7d4e16144a23f3d6ab68242a,
     type: 2}
+  recycle: 1
 --- !u!114 &114612999920142754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,8 +243,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paratrooperPrefab: {fileID: 4155697518971196, guid: 658d7bce1c94e3040b0492071ab67d6c,
     type: 2}
-  minDropDelay: 1
-  maxDropDelay: 2
+  minDropDelay: 2
+  maxDropDelay: 3
   maxDrops: 2
 --- !u!114 &114614613542380700
 MonoBehaviour:

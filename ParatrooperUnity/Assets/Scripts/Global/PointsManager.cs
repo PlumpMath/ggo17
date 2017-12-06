@@ -10,8 +10,19 @@ public class PointsManager : MonoBehaviour
 
 	public static PointsManager Instance = null;
 
-	public float Points => this.points;
-	public float TotalPoints => this.totalPoints;
+	public int Points
+	{
+		get
+		{
+			return this.points;
+		}
+		set
+		{
+			this.points = value;
+		}
+	}
+
+	public int TotalPoints => this.totalPoints;
 	public int TroopersKilled => this.troopersKilled;
 	public int TroopersFell => this.troopersFell;
 	public int TransportsKilled => this.transportKills;

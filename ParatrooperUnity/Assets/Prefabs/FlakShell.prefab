@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 60
   source: 3
+  DebugOn: 0
 --- !u!114 &114686635125264750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,9 +133,10 @@ MonoBehaviour:
     type: 2}
   shrapnelBlastPrefab: {fileID: 114385569775807484, guid: a1cc7fa4f33ded248ac963185c7d5a8f,
     type: 2}
-  shockwavePrefab: {fileID: 114059532934339934, guid: 35b81f84943267145b9cde8230066103,
+  shockwavePrefab: {fileID: 114316648662765206, guid: 4f04b3c42ad78484f9875e7f8dda8bef,
     type: 2}
   fuseTime: 0.5
+  DebugOn: 0
 --- !u!212 &212065841589524480
 SpriteRenderer:
   m_ObjectHideFlags: 1

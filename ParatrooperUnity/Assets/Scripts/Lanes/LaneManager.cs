@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Lanes
@@ -14,6 +15,14 @@ namespace Lanes
         [SerializeField]
         private bool autoSpawn = true;
 
+        [SerializeField]
+        private float doubleSpawnChance = 0.0f;
+
+        public void SetAutoSpawn(bool value)
+        {
+            this.autoSpawn = value;
+        }
+        
         private float delay;
         private Transform spawnLeft;
         private Transform spawnRight;
@@ -31,9 +40,43 @@ namespace Lanes
             plane.FlyLeft();
         }
 
+        IEnumerator SpawnMultiple(int count, bool left)
+        {
+            this.SpawnOnSide(left);
+            count--;
+
+            float delay = this.spawnDelay / 2.0f;
+            while(delay > 0.0f && count > 0)
+            {
+                delay -= Time.deltaTime;
+
+                if(delay < 0.0f)
+                {
+                    this.SpawnOnSide(left);
+                    count--;
+                    delay = this.spawnDelay / 2.0f;
+                }
+
+                yield return null;
+            }
+        }
+
+        private void SpawnOnSide(bool left)
+        {
+            if(left)
+            {
+                this.SpawnLeft();
+            }
+            else
+            {
+                this.SpawnRight();
+            }
+        }
+
         void Awake()
         {
-            this.delay = this.spawnDelay;
+            this.ResetDelay();
+            
             this.spawnLeft = this.transform.Find("SpawnLeft");
             this.spawnRight = this.transform.Find("SpawnRight");
             this.planes = new List<Transform>(2);
@@ -47,20 +90,15 @@ namespace Lanes
 
             if(this.planes.Count == 0 && this.delay < 0)
             {
-                if(Random.value < 0.5f)
-                {
-                    this.SpawnLeft();
-                }
-                else
-                {
-                    this.SpawnRight();
-                }
+                bool left = Random.value < 0.5f ? true : false;
+                int spawnCount = 1 + (Random.value < this.doubleSpawnChance ? 1 : 0);
+                StartCoroutine(SpawnMultiple(spawnCount, left));
             }
         }
 
         private FlyHorizontal Spawn(Transform spawn)
         {
-            this.delay = this.spawnDelay;
+            this.ResetDelay();
 
             var planeToSpawn = this.planePrefabs[Random.Range(0, this.planePrefabs.Length)];
 
@@ -81,6 +119,8 @@ namespace Lanes
             var plane = other.GetComponent<FlyHorizontal>();
             if(plane != null)
             {
+                this.ResetDelay();
+                
                 this.planes.Remove(other.transform);
                 var pooled = other.transform.GetComponent<Pooled>();
                 if(pooled != null)
@@ -88,6 +128,21 @@ namespace Lanes
                     pooled.DestroyPooled();
                 }
             }
+        }
+        
+        private void ResetDelay()
+        {
+            this.delay = this.spawnDelay;
+        }
+
+        public void SetPlanes(FlyHorizontal[] transforms)
+        {
+            this.planePrefabs = transforms;
+        }
+
+        public void SetDoubleSpawnChance(float doubleSpawnChance)
+        {
+            this.doubleSpawnChance = doubleSpawnChance;
         }
     }
 }

@@ -16,6 +16,9 @@ public class FlakShellBombTrigger : MonoBehaviour, IPooledOnDestroy, IRecyclable
     [SerializeField, Range(0.0f, 5.0f)]
     private float fuseTime;
 
+    [SerializeField]
+    private bool DebugOn = false;
+
     private float time;
 
     private Pooled pooled;
@@ -42,7 +45,7 @@ public class FlakShellBombTrigger : MonoBehaviour, IPooledOnDestroy, IRecyclable
     {
         if(this.shrapnelBlastPrefab != null)
         {
-            Debug.Log("Spawned shrapnel");
+            if (DebugOn) Debug.Log("Spawned shrapnel");
             PoolingFactory.SpawnOrRecycle<ShrapnelBlast>(this.shrapnelBlastPrefab.transform, this.transform.position).Blast(this.shrapnelPrefab);
 
         }

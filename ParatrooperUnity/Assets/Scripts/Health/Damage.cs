@@ -14,6 +14,9 @@ public class Damage : MonoBehaviour
 	[Tooltip("Source of the damage - typically used for scoring.")]
 	protected DamageSource source;
 
+	[SerializeField]
+	protected bool DebugOn = false;
+
 	protected Pooled pooled;
 
 	protected virtual void Awake()
@@ -27,7 +30,7 @@ public class Damage : MonoBehaviour
 		if (health != null)
 		{
 			health.Damage(this);
-			Debug.Log("Damaged " + other.name);
+			if (DebugOn) Debug.Log("Damaged " + other.name);
 
 			DestroySelf();
 		}

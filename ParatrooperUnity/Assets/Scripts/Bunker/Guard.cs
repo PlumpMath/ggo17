@@ -19,16 +19,21 @@ public class Guard : MonoBehaviour
 	
 	void Awake()
 	{
-		animator = GetComponent<Animator>();
-		armJoint = transform.Find("ArmJoint");
-		armRenderer = armJoint.GetComponentInChildren<SpriteRenderer>();
-		armRenderer.color = TransparentBlack;
-		gun = armJoint.GetComponentInChildren<Gun>();
-
-		gun.OnEmpty += TakeCover;
-		gun.OnReloaded += ReadyUp;
+		this.InitComponents();
 	}
-	
+
+	private void InitComponents()
+	{
+		this.animator = this.GetComponent<Animator>();
+		this.armJoint = this.transform.Find("ArmJoint");
+		this.armRenderer = this.armJoint.GetComponentInChildren<SpriteRenderer>();
+		this.armRenderer.color = TransparentBlack;
+		this.gun = this.armJoint.GetComponentInChildren<Gun>();
+
+		this.gun.OnEmpty += this.TakeCover;
+		this.gun.OnReloaded += this.ReadyUp;
+	}
+
 	void Update() {
 		if (!cover && aimed && targets)
 		{
@@ -39,7 +44,7 @@ public class Guard : MonoBehaviour
 	
 	private void OnTriggerStay2D(Collider2D other)
 	{
-		if (other.GetComponent<Health>()) // Assume soldier
+		if (other.GetComponent<Health>() && !other.CompareTag("Player")) // Assume soldier
 		{
 			targets = true;
 		}
@@ -75,6 +80,12 @@ public class Guard : MonoBehaviour
 	public void ReadyUp()
 	{
 		cover = false;
+
+		if(this.animator == null)
+		{
+			this.InitComponents();
+		}
+		
 		animator.SetBool("Cover", cover);
 	}
 
